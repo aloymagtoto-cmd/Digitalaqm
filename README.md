@@ -66,6 +66,13 @@ at a service (Formspree, Basin, a serverless function) and replace the `mailto:`
 
 ## Deploying
 
-**GitHub Pages** — Settings → Pages → Deploy from branch → `main` / root.
+See **[DEPLOY.md](DEPLOY.md)** for step-by-step instructions, including putting this on a
+GoDaddy domain (cPanel upload, DNS pointing, and what to do if you're on their website
+builder).
 
-**Netlify / Vercel / Cloudflare Pages** — no build command, publish directory `/`.
+Quick version:
+
+- **GitHub Pages** — Settings → Pages → Deploy from branch → root.
+- **Netlify / Vercel / Cloudflare Pages** — no build command, publish directory `/`.
+- **Any classic host** — run `python3 build-standalone.py` and upload the single
+  `dist/index.html` on its own.

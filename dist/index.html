@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aloysius Magtoto — Digital Marketing &amp; Media Buying</title>
+<meta name="description" content="Registered Marketing Professional with 9+ years in full-funnel paid media. Google Ads, Meta, Apple Search Ads, TikTok, and marketplace PPC across US healthcare, iOS apps, retail, and automotive." />
+<meta name="theme-color" content="#0a0a0b" />
+
+<meta property="og:title" content="Aloysius Magtoto — Digital Marketing &amp; Media Buying" />
+<meta property="og:description" content="Full-funnel media buying built on real conversion signal. $117K+ Google Ads managed, 9.08× peak ROAS, 2,400+ leads driven." />
+<meta property="og:type" content="profile" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* =========================================================
+   Digital AQM — brand & growth studio
+   Handwritten CSS. No framework, no build step.
+   ========================================================= */
+
+/* ── tokens ──────────────────────────────────────────────── */
+:root {
+  --accent:      #d6ff3f;
+  --accent-2:    #7c5cff;
+  --accent-3:    #ff6b4a;
+
+  --bg:          #0a0a0b;
+  --bg-2:        #0f0f11;
+  --surface:     rgba(255, 255, 255, .035);
+  --surface-2:   rgba(255, 255, 255, .06);
+  --line:        rgba(255, 255, 255, .10);
+  --line-strong: rgba(255, 255, 255, .18);
+  --ink:         #f4f4f5;
+  --ink-2:       rgba(244, 244, 245, .62);
+  --ink-3:       rgba(244, 244, 245, .38);
+  --on-accent:   #0a0a0b;
+
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --wrap:  1240px;
+  --pad:   clamp(1.25rem, 5vw, 3.5rem);
+  --gap:   clamp(1rem, 2.2vw, 1.75rem);
+  --radius: 20px;
+
+  --ease:  cubic-bezier(.22, 1, .36, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+}
+
+[data-theme="light"] {
+  --accent:      #1f1f22;
+  --accent-2:    #5b3df5;
+  --accent-3:    #ff5b34;
+
+  --bg:          #f2f1ee;
+  --bg-2:        #e9e8e4;
+  --surface:     rgba(10, 10, 11, .028);
+  --surface-2:   rgba(10, 10, 11, .055);
+  --line:        rgba(10, 10, 11, .12);
+  --line-strong: rgba(10, 10, 11, .24);
+  --ink:         #101012;
+  --ink-2:       rgba(16, 16, 18, .66);
+  --ink-3:       rgba(16, 16, 18, .42);
+  --on-accent:   #f7f7f5;
+}
+
+/* ── reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, .96rem + .2vw, 1.075rem);
+  line-height: 1.6;
+  letter-spacing: -.011em;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background .5s var(--ease), color .5s var(--ease);
+}
+
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+ul, ol { list-style: none; }
+::selection { background: var(--accent); color: var(--on-accent); }
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.skip {
+  position: fixed; top: -100px; left: 1rem; z-index: 999;
+  background: var(--accent); color: var(--on-accent);
+  padding: .7rem 1.1rem; border-radius: 999px; font-weight: 600;
+}
+.skip:focus { top: 1rem; }
+
+/* ── loader ──────────────────────────────────────────────── */
+.loader {
+  position: fixed; inset: 0; z-index: 300;
+  background: var(--bg);
+  display: grid; place-content: center; gap: 1.75rem;
+  transition: opacity .6s var(--ease), visibility .6s;
+}
+.loader.done { opacity: 0; visibility: hidden; }
+.loader__inner {
+  display: flex; align-items: baseline; gap: .9rem;
+  font-family: var(--font-display);
+}
+.loader__mark {
+  font-size: clamp(2.5rem, 9vw, 4.5rem); font-weight: 700; letter-spacing: -.05em;
+}
+.loader__count { font-size: 1rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.loader__bar { width: min(280px, 60vw); height: 2px; background: var(--line); overflow: hidden; }
+.loader__bar i { display: block; height: 100%; width: 0; background: var(--accent); }
+
+/* ── ambient ─────────────────────────────────────────────── */
+.grain {
+  position: fixed; inset: -50%; z-index: 200; pointer-events: none;
+  opacity: .16; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grain 6s steps(6) infinite;
+}
+@keyframes grain {
+  0%,100% { transform: translate(0,0); }
+  20% { transform: translate(-4%, 3%); }
+  40% { transform: translate(3%, -5%); }
+  60% { transform: translate(-2%, 4%); }
+  80% { transform: translate(5%, 2%); }
+}
+
+.orb {
+  position: fixed; z-index: -1; border-radius: 50%;
+  filter: blur(90px); opacity: .35; pointer-events: none;
+  transition: transform .8s var(--ease);
+}
+.orb--a {
+  width: 48vw; height: 48vw; top: -14vw; right: -12vw;
+  background: radial-gradient(circle at 40% 40%, var(--accent-2), transparent 68%);
+}
+.orb--b {
+  width: 42vw; height: 42vw; top: 58vh; left: -14vw;
+  background: radial-gradient(circle at 60% 50%, var(--accent), transparent 66%);
+  opacity: .22;
+}
+[data-theme="light"] .orb { opacity: .30; }
+[data-theme="light"] .grain { mix-blend-mode: multiply; opacity: .09; }
+
+/* ── cursor ──────────────────────────────────────────────── */
+.cursor {
+  position: fixed; top: 0; left: 0; z-index: 250; pointer-events: none;
+  width: 11px; height: 11px; border-radius: 999px;
+  background: var(--accent);
+  display: grid; place-items: center;
+  transform: translate(-50%, -50%);
+  transition: width .35s var(--ease), height .35s var(--ease),
+              background .3s var(--ease), opacity .3s;
+  mix-blend-mode: difference;
+  opacity: 0;
+}
+.cursor.on { opacity: 1; }
+.cursor span {
+  font-family: var(--font-display);
+  font-size: .68rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--on-accent); opacity: 0; white-space: nowrap;
+  transition: opacity .25s var(--ease);
+}
+.cursor.hot { width: 88px; height: 88px; mix-blend-mode: normal; }
+.cursor.hot span { opacity: 1; }
+@media (hover: none), (pointer: coarse) { .cursor { display: none; } }
+
+/* ── nav ─────────────────────────────────────────────────── */
+.nav {
+  position: fixed; inset: 0 0 auto 0; z-index: 120;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem var(--pad);
+  transition: background .4s var(--ease), backdrop-filter .4s, border-color .4s, padding .4s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+.nav.stuck {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(18px) saturate(150%);
+  border-bottom-color: var(--line);
+  padding-block: .75rem;
+}
+.nav.hide { transform: translateY(-110%); }
+.nav { transition-property: background, backdrop-filter, border-color, padding, transform; }
+
+.nav__logo {
+  display: flex; align-items: center; gap: .6rem;
+  font-family: var(--font-display); font-weight: 500;
+  letter-spacing: -.03em; font-size: 1.06rem;
+}
+.nav__logo b { font-weight: 700; }
+.nav__dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 50%, transparent);
+  animation: ping 2.8s var(--ease) infinite;
+}
+@keyframes ping {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 12px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+.nav__links { display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
+.nav__links > a {
+  font-size: .93rem; color: var(--ink-2); position: relative;
+  transition: color .3s var(--ease);
+}
+.nav__links > a:not(.nav__cta)::after {
+  content: ''; position: absolute; left: 0; bottom: -5px;
+  width: 100%; height: 1px; background: currentColor;
+  transform: scaleX(0); transform-origin: right;
+  transition: transform .4s var(--ease);
+}
+.nav__links > a:hover { color: var(--ink); }
+.nav__links > a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.nav__cta {
+  background: var(--accent); color: var(--on-accent) !important;
+  padding: .55rem 1.05rem; border-radius: 999px; font-weight: 600;
+  display: inline-flex; align-items: center; gap: .45rem;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease);
+}
+.nav__cta i { font-style: normal; transition: transform .35s var(--ease); }
+.nav__cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--accent) 70%, transparent); }
+.nav__cta:hover i { transform: translateX(3px); }
+
+.nav__tools { display: flex; align-items: center; gap: .75rem; }
+
+.theme-toggle {
+  width: 46px; height: 26px; border-radius: 999px;
+  border: 1px solid var(--line-strong); background: var(--surface);
+  position: relative; flex: none;
+}
+.theme-toggle__thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--accent);
+  transition: transform .4s var(--ease);
+}
+[data-theme="light"] .theme-toggle__thumb { transform: translateX(20px); }
+
+.burger { display: none; width: 34px; height: 26px; position: relative; }
+.burger i {
+  position: absolute; left: 4px; right: 4px; height: 2px; border-radius: 2px;
+  background: var(--ink); transition: transform .4s var(--ease), opacity .3s;
+}
+.burger i:first-child { top: 8px; }
+.burger i:last-child  { bottom: 8px; }
+.burger[aria-expanded="true"] i:first-child { transform: translateY(4px) rotate(45deg); }
+.burger[aria-expanded="true"] i:last-child  { transform: translateY(-4px) rotate(-45deg); }
+
+/* ── shared type ─────────────────────────────────────────── */
+.eyebrow {
+  display: inline-flex; align-items: flex-start; gap: .5rem;
+  font-family: var(--font-display);
+  font-size: .78rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3);
+}
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--accent);
+  flex: none; margin-top: .42em;          /* sits on the first line when the label wraps */
+  animation: ping 2.4s var(--ease) infinite;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5.4vw, 4rem);
+  font-weight: 600; line-height: 1.02; letter-spacing: -.04em;
+  margin-top: .9rem;
+}
+.sec-sub {
+  color: var(--ink-2); max-width: 52ch; margin-top: 1.1rem;
+  font-size: clamp(1rem, .95rem + .25vw, 1.13rem);
+}
+.grad {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 55%, var(--accent-3) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+.section { padding-block: clamp(5rem, 12vw, 9.5rem); position: relative; scroll-margin-top: 5rem; }
+.sec-head { margin-bottom: clamp(2.5rem, 6vw, 4.5rem); }
+.sec-head--row {
+  display: flex; flex-wrap: wrap; gap: 2rem;
+  align-items: flex-end; justify-content: space-between;
+}
+.sec-head--row .sec-sub { max-width: 34ch; }
+
+/* ── buttons ─────────────────────────────────────────────── */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  padding: .95rem 1.6rem; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 600; font-size: .97rem;
+  border: 1px solid transparent; position: relative; overflow: hidden;
+  transition: transform .4s var(--ease), border-color .4s, color .4s, background .4s;
+  will-change: transform;
+}
+.btn i { font-style: normal; transition: transform .4s var(--ease); }
+.btn:hover i { transform: translateX(4px); }
+.btn--primary { background: var(--accent); color: var(--on-accent); }
+.btn--primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(100deg, var(--accent-2), var(--accent-3));
+  opacity: 0; transition: opacity .45s var(--ease); z-index: -1;
+}
+.btn--primary:hover { color: #fff; }
+.btn--primary:hover::before { opacity: 1; }
+.btn--ghost { border-color: var(--line-strong); color: var(--ink); }
+.btn--ghost:hover { background: var(--surface-2); border-color: var(--ink-3); }
+.btn--block { width: 100%; }
+
+/* ── hero ────────────────────────────────────────────────── */
+.hero {
+  min-height: 100svh;
+  display: flex; align-items: center;
+  padding-block: 8rem 4rem;
+  position: relative; overflow: hidden;
+}
+.hero__grid {
+  position: absolute; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 68px 68px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, #000 20%, transparent 80%);
+  opacity: .5;
+}
+.hero__inner { width: 100%; }
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 11.5vw, 9.5rem);
+  font-weight: 600; line-height: .92; letter-spacing: -.055em;
+  margin: 1.4rem 0 0;
+}
+.hero__title .line { display: block; overflow: hidden; padding-bottom: .04em; }
+.hero__title .line > span {
+  display: block;
+  transform: translateY(105%);
+  animation: riseIn 1.05s var(--ease) forwards;
+}
+.hero__title .line:nth-child(1) > span { animation-delay: .15s; }
+.hero__title .line:nth-child(2) > span { animation-delay: .27s; }
+.hero__title .line:nth-child(3) > span { animation-delay: .39s; }
+@keyframes riseIn { to { transform: translateY(0); } }
+
+.hero__meta {
+  display: flex; flex-wrap: wrap; gap: 2rem clamp(2rem, 6vw, 5rem);
+  align-items: flex-end; justify-content: space-between;
+  margin-top: clamp(2rem, 4vw, 3.2rem);
+}
+.hero__lede { color: var(--ink-2); max-width: 46ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+.hero__stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--gap);
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  padding-top: 1.9rem; border-top: 1px solid var(--line);
+}
+.stat b {
+  display: block; font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem); font-weight: 600;
+  letter-spacing: -.04em; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.stat span { font-size: .85rem; color: var(--ink-3); }
+
+/* pinned to the viewport, not the hero box — the hero is taller than the
+   fold once the stat row is in, so an absolute cue would sit on top of it */
+.scroll-cue {
+  position: fixed; bottom: 1.8rem; left: 50%; translate: -50% 0; z-index: 110;
+  display: flex; align-items: center; gap: .6rem;
+  font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--ink-3);
+  transition: opacity .45s var(--ease);
+}
+.scroll-cue.gone { opacity: 0; }
+.scroll-cue span {
+  width: 1px; height: 34px; background: linear-gradient(var(--accent), transparent);
+  animation: cue 2s var(--ease-in-out) infinite;
+}
+@keyframes cue { 0%,100% { opacity: .25; transform: scaleY(.6); } 50% { opacity: 1; transform: scaleY(1); } }
+
+/* ── marquee ─────────────────────────────────────────────── */
+.marquee {
+  border-block: 1px solid var(--line);
+  padding-block: 1.15rem;
+  overflow: hidden; white-space: nowrap;
+  background: var(--surface);
+}
+.marquee__track {
+  display: inline-flex; align-items: center; gap: 2.4rem;
+  animation: slide 34s linear infinite;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.7rem); font-weight: 500;
+  letter-spacing: -.02em;
+}
+.marquee__track i { color: var(--accent); font-style: normal; font-size: .8em; }
+@keyframes slide { to { transform: translateX(-50%); } }
+.marquee:hover .marquee__track { animation-play-state: paused; }
+
+/* ── cards ───────────────────────────────────────────────── */
+.cards {
+  display: grid; gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+.card {
+  position: relative; isolation: isolate;
+  padding: clamp(1.5rem, 2.6vw, 2.1rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  transition: transform .5s var(--ease), border-color .5s, background .5s;
+}
+.card::after {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%),
+              color-mix(in srgb, var(--accent) 14%, transparent), transparent 62%);
+  opacity: 0; transition: opacity .45s var(--ease);
+}
+.card:hover { transform: translateY(-6px); border-color: var(--line-strong); }
+.card:hover::after { opacity: 1; }
+.card__num {
+  font-family: var(--font-display); font-size: .8rem;
+  color: var(--ink-3); letter-spacing: .1em;
+}
+.card h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.25rem, 2vw, 1.55rem); letter-spacing: -.03em;
+  margin: .9rem 0 .6rem;
+}
+.card p { color: var(--ink-2); font-size: .97rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: 1.3rem; }
+.tags li {
+  font-size: .76rem; letter-spacing: .02em;
+  padding: .3rem .7rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink-3);
+}
+.card--accent {
+  background: linear-gradient(150deg,
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    color-mix(in srgb, var(--accent-2) 16%, transparent));
+  border-color: color-mix(in srgb, var(--accent) 32%, transparent);
+}
+.card--accent p { color: var(--ink); opacity: .82; }
+
+/* ── work ────────────────────────────────────────────────── */
+.section--work { background: var(--bg-2); }
+.work {
+  display: grid; gap: clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.work__item {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; background: var(--surface);
+  display: flex; flex-direction: column;
+  transition: transform .55s var(--ease), border-color .55s;
+}
+.work__item:hover { transform: translateY(-8px); border-color: var(--line-strong); }
+
+/* headline case studies run the full width, thumb beside the copy */
+.work__item--wide { grid-column: 1 / -1; }
+@media (min-width: 900px) {
+  .work__item--wide {
+    display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: stretch;
+  }
+  .work__item--wide .work__thumb { aspect-ratio: auto; height: 100%; min-height: 300px; }
+}
+
+.work__thumb {
+  aspect-ratio: 16 / 10; position: relative; overflow: hidden;
+  display: grid; place-items: end start; padding: 1.1rem;
+}
+.work__thumb::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 34px 34px; opacity: .6;
+}
+.work__thumb::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 70% 20%, rgba(255,255,255,.35), transparent 55%);
+  mix-blend-mode: overlay;
+  transition: transform .8s var(--ease);
+}
+.work__item:hover .work__thumb::after { transform: scale(1.15) rotate(4deg); }
+.work__thumb--1 { background: linear-gradient(135deg, #ff9d4d, #c2410c 55%, #431407); }
+.work__thumb--2 { background: linear-gradient(135deg, #7c5cff, #3b1fa8 55%, #12082f); }
+.work__thumb--3 { background: linear-gradient(135deg, #3ddc97, #0f766e 55%, #052e2b); }
+.work__thumb--4 { background: linear-gradient(135deg, #d6ff3f, #65a30d 55%, #1a2e05); }
+.work__thumb--5 { background: linear-gradient(135deg, #7dd3fc, #0369a1 55%, #082f49); }
+.work__thumb--6 { background: linear-gradient(135deg, #f9a8d4, #be185d 55%, #4c0519); }
+.work__thumb--7 { background: linear-gradient(135deg, #fca5a5, #dc2626 55%, #450a0a); }
+.work__badge {
+  position: relative; z-index: 1;
+  font-size: .74rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(10,10,11,.55); color: #fff; backdrop-filter: blur(8px);
+  padding: .4rem .8rem; border-radius: 999px;
+}
+
+.work__body {
+  padding: clamp(1.3rem, 2.4vw, 1.9rem);
+  display: flex; flex-direction: column; flex: 1;
+}
+.work__title {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  flex-wrap: wrap;
+}
+.work__title h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem); letter-spacing: -.03em;
+}
+.work__title span {
+  font-size: .78rem; color: var(--ink-3);
+  letter-spacing: .1em; text-transform: uppercase; white-space: nowrap;
+}
+.work__body > p { color: var(--ink-2); font-size: .97rem; margin-top: .55rem; }
+.work__metrics {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem 1rem;
+  margin-top: auto; padding-top: 1.4rem; border-top: 1px solid var(--line);
+}
+.work__metrics > div { padding-top: .1rem; }
+.work__metrics b {
+  display: block; font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.75vw, 1.4rem); font-weight: 600; letter-spacing: -.03em;
+  color: var(--accent); line-height: 1.15;
+}
+[data-theme="light"] .work__metrics b { color: var(--accent-2); }
+.work__metrics span { font-size: .76rem; color: var(--ink-3); }
+
+/* the notes under the metrics — the "why", in the client's own framing */
+.work__notes {
+  display: grid; gap: 1.1rem;
+  margin-top: 1.5rem; padding-top: 1.3rem; border-top: 1px solid var(--line);
+}
+.work__item--wide .work__notes { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.work__notes dt {
+  font-size: .74rem; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: .4rem;
+}
+.work__notes dd { font-size: .91rem; color: var(--ink-2); line-height: 1.55; }
+
+/* ── roles ───────────────────────────────────────────────── */
+.roles { border-top: 1px solid var(--line); }
+.role {
+  display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: .6rem clamp(1.5rem, 4vw, 3.5rem);
+  padding: clamp(1.4rem, 2.6vw, 2rem) clamp(0rem, 1.5vw, 1.2rem);
+  border-bottom: 1px solid var(--line);
+  transition: background .45s var(--ease), padding-left .45s var(--ease);
+}
+.role:hover { background: var(--surface-2); padding-left: clamp(.8rem, 2.5vw, 2rem); }
+.role__head h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.55rem); letter-spacing: -.03em;
+}
+.role__meta { font-size: .82rem; color: var(--ink-3); display: block; margin-top: .3rem; }
+.role p { color: var(--ink-2); font-size: .97rem; }
+
+/* ── stack ───────────────────────────────────────────────── */
+.stack {
+  display: grid; gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));  /* → 3 × 2 on desktop */
+}
+.stack__col {
+  padding: clamp(1.3rem, 2.4vw, 1.8rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface);
+  transition: border-color .45s, transform .45s var(--ease);
+}
+.stack__col:hover { border-color: var(--line-strong); transform: translateY(-4px); }
+.stack__col h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 1.05rem; letter-spacing: -.02em; margin-bottom: 1rem;
+  padding-bottom: .8rem; border-bottom: 1px solid var(--line);
+}
+.stack__col ul { display: flex; flex-wrap: wrap; gap: .4rem; }
+.stack__col li {
+  font-size: .8rem; padding: .32rem .72rem; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--ink-2);
+}
+
+/* ── process ─────────────────────────────────────────────── */
+.process {
+  display: grid; gap: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1fr);
+  align-items: start;
+}
+.process__sticky { position: sticky; top: 8rem; }
+.process__sticky .btn { margin-top: 2rem; }
+
+.steps { display: grid; gap: 1rem; }
+.step {
+  display: flex; gap: clamp(1rem, 2.5vw, 2rem);
+  padding: clamp(1.4rem, 2.6vw, 2rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface);
+  transition: transform .5s var(--ease), background .5s, border-color .5s;
+}
+.step:hover { transform: translateX(8px); background: var(--surface-2); border-color: var(--line-strong); }
+.step__n {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.6rem, 3vw, 2.4rem); letter-spacing: -.04em;
+  color: transparent; -webkit-text-stroke: 1px var(--line-strong);
+  line-height: 1; flex: none;
+}
+.step h3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: -.03em; margin-bottom: .45rem;
+}
+.step p { color: var(--ink-2); font-size: .97rem; }
+
+/* ── about ───────────────────────────────────────────────── */
+.section--about { background: var(--bg-2); }
+.about {
+  display: grid; gap: clamp(2.5rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
+  align-items: center;
+}
+.about__visual { position: relative; }
+.about__portrait {
+  aspect-ratio: 4 / 5; border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 55%),
+    linear-gradient(150deg, var(--accent-2), #150c37 70%);
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.about__portrait span {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -.06em;
+  color: rgba(255,255,255,.9);
+  mix-blend-mode: overlay;
+}
+.about__chip {
+  position: absolute; left: clamp(.75rem, 3vw, 1.6rem); bottom: clamp(-1.2rem, -2vw, -1rem);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--line-strong); border-radius: 14px;
+  padding: .85rem 1.15rem;
+}
+.about__chip b { display: block; font-family: var(--font-display); letter-spacing: -.02em; }
+.about__chip span { font-size: .8rem; color: var(--ink-3); }
+
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
+.chips li {
+  font-size: .82rem; padding: .45rem .9rem; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--surface); color: var(--ink-2);
+  transition: border-color .35s, color .35s, transform .35s var(--ease);
+}
+.chips li:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-2px); }
+
+/* ── cta / form ──────────────────────────────────────────── */
+.section--cta { background: var(--bg-2); }
+.cta {
+  display: grid; gap: clamp(2.5rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+  align-items: start;
+}
+.cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 600; line-height: .98; letter-spacing: -.05em; margin-top: .9rem;
+}
+.cta__direct { margin-top: 2.5rem; }
+.cta__mail {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.2vw, 1.5rem); letter-spacing: -.03em;
+  border-bottom: 1px solid var(--line-strong); padding-bottom: .2rem;
+  transition: color .35s, border-color .35s;
+}
+.cta__mail:hover { color: var(--accent); border-color: var(--accent); }
+
+.contact-list { margin-top: 2rem; display: grid; gap: .1rem; }
+.contact-list li {
+  display: flex; flex-wrap: wrap; gap: .4rem 1.5rem;
+  justify-content: space-between; align-items: baseline;
+  padding: .85rem 0; border-top: 1px solid var(--line);
+}
+.contact-list span {
+  font-size: .74rem; letter-spacing: .13em; text-transform: uppercase; color: var(--ink-3);
+}
+.contact-list a, .contact-list b { font-size: .97rem; font-weight: 400; }
+.contact-list a { transition: color .3s; }
+.contact-list a:hover { color: var(--accent); }
+
+.form {
+  display: grid; gap: 1rem;
+  padding: clamp(1.4rem, 3vw, 2.2rem);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--surface);
+}
+.field { position: relative; }
+.field input, .field textarea {
+  width: 100%; background: transparent;
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 1.35rem .95rem .6rem;
+  transition: border-color .35s, background .35s;
+  resize: vertical;
+}
+.field input:focus, .field textarea:focus {
+  outline: none; border-color: var(--accent); background: var(--surface-2);
+}
+.field > label {
+  position: absolute; left: .95rem; top: 1rem;
+  font-size: .95rem; color: var(--ink-3); pointer-events: none;
+  transition: transform .28s var(--ease), font-size .28s var(--ease), color .28s;
+  transform-origin: left top;
+}
+.field > label em { font-style: normal; opacity: .7; }
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field textarea:focus + label,
+.field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-.72rem) scale(.78);
+  color: var(--ink-2);
+}
+.field.invalid input, .field.invalid textarea { border-color: var(--accent-3); }
+
+.field--pills { border: 0; }
+.field--pills legend {
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: .7rem;
+}
+.pills { display: flex; flex-wrap: wrap; gap: .5rem; }
+.pills label { cursor: pointer; }
+.pills input { position: absolute; opacity: 0; pointer-events: none; }
+.pills span {
+  display: inline-block;
+  padding: .5rem .95rem; border-radius: 999px;
+  border: 1px solid var(--line); font-size: .87rem; color: var(--ink-2);
+  transition: all .3s var(--ease);
+}
+.pills input:checked + span {
+  background: var(--accent); color: var(--on-accent);
+  border-color: var(--accent); font-weight: 600;
+}
+.pills input:focus-visible + span { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+.form__note { font-size: .87rem; color: var(--ink-3); min-height: 1.2em; text-align: center; }
+.form__note.ok { color: var(--accent); }
+[data-theme="light"] .form__note.ok { color: var(--accent-2); }
+.form__note.err { color: var(--accent-3); }
+
+/* ── footer ──────────────────────────────────────────────── */
+.footer { padding-block: clamp(3.5rem, 8vw, 6rem) 2rem; border-top: 1px solid var(--line); }
+.footer__top {
+  display: grid; gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  color: var(--ink-2); font-size: .95rem;
+}
+.footer__label {
+  font-size: .74rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3); margin-bottom: .7rem;
+}
+.footer__top a { transition: color .3s; }
+.footer__top a:hover { color: var(--accent); }
+
+.footer__mark {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.9rem, 12.2vw, 11rem); line-height: .95; letter-spacing: -.055em;
+  white-space: nowrap;                    /* one line, always — descenders included */
+  text-align: center; margin-block: clamp(2.5rem, 7vw, 4.5rem) 2rem;
+  color: transparent; -webkit-text-stroke: 1px var(--line-strong);
+  user-select: none;
+}
+.footer__bottom {
+  display: flex; flex-wrap: wrap; gap: 1rem;
+  justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: .85rem; color: var(--ink-3);
+}
+.footer__up { transition: color .3s; }
+.footer__up:hover { color: var(--accent); }
+
+/* ── reveal ──────────────────────────────────────────────── */
+.reveal {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* ── responsive ──────────────────────────────────────────── */
+@media (max-width: 980px) {
+  .process, .about, .cta { grid-template-columns: 1fr; }
+  .process__sticky { position: static; }
+  .about__visual { max-width: 420px; }
+}
+
+@media (max-width: 900px) {
+  .work { grid-template-columns: 1fr; }
+  .role { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .burger { display: block; }
+  .nav__links {
+    position: fixed; inset: 0 0 auto 0;
+    flex-direction: column; align-items: flex-start; justify-content: center;
+    gap: 1.4rem; height: 100svh;
+    padding: 6rem var(--pad) 3rem;
+    background: color-mix(in srgb, var(--bg) 96%, transparent);
+    backdrop-filter: blur(20px);
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path .6s var(--ease);
+  }
+  .nav__links.open { clip-path: inset(0 0 0 0); }
+  .nav__links > a { font-family: var(--font-display); font-size: 2rem; letter-spacing: -.04em; color: var(--ink); }
+  .nav__cta { font-size: 1.1rem; padding: .8rem 1.4rem; }
+
+  .hero__stats { grid-template-columns: repeat(2, 1fr); row-gap: 1.8rem; }
+  .hero { min-height: auto; padding-block: 7.5rem 4rem; }
+  .scroll-cue { display: none; }
+  .work__metrics { gap: 1rem .6rem; }
+}
+
+@media (max-width: 420px) {
+  .work__title { flex-direction: column; gap: .2rem; }
+  .work__metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ── motion / print ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .hero__title .line > span { transform: none; }
+  .grain { display: none; }
+}
+
+@media print {
+  .nav, .loader, .grain, .orb, .cursor, .marquee, .scroll-cue { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+
+</style>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23050506'/><circle cx='50' cy='50' r='22' fill='%23d6ff3f'/></svg>" />
+</head>
+<body>
+
+<!-- ── loader ─────────────────────────────────────────────── -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <span class="loader__mark">AM</span>
+    <span class="loader__count" id="loaderCount">0</span>
+  </div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+</div>
+
+<!-- ── ambient layers ─────────────────────────────────────── -->
+<div class="grain" aria-hidden="true"></div>
+<div class="orb orb--a" aria-hidden="true"></div>
+<div class="orb orb--b" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+<a class="skip" href="#work">Skip to content</a>
+
+<!-- ── nav ────────────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo" data-cursor="top">
+    <span class="nav__dot"></span>
+    <span>Aloy<b>Magtoto</b></span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Primary">
+    <a href="#services">What I do</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#stack">Stack</a>
+    <a href="#contact" class="nav__cta">Get in touch <i>→</i></a>
+  </nav>
+
+  <div class="nav__tools">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+      <span class="theme-toggle__thumb"></span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ── hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="wrap hero__inner">
+      <p class="eyebrow reveal">
+        <span class="pulse"></span> Aloysius Magtoto — Registered Marketing Professional
+      </p>
+
+      <h1 class="hero__title">
+        <span class="line"><span>Media buying</span></span>
+        <span class="line"><span>that moves</span></span>
+        <span class="line"><span class="grad">the number.</span></span>
+      </h1>
+
+      <div class="hero__meta">
+        <p class="hero__lede reveal">
+          Most buyers optimise inside the platform. I work backwards from revenue —
+          auditing the measurement layer, finding where the funnel actually breaks,
+          then buying against the real signal.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a href="#work" class="btn btn--primary magnetic" data-cursor="the numbers">
+            See the work <i>→</i>
+          </a>
+          <a href="#contact" class="btn btn--ghost magnetic">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero__stats reveal">
+        <div class="stat">
+          <b class="count" data-to="9" data-suffix="+">0</b><span>Years experience</span>
+        </div>
+        <div class="stat">
+          <b class="count" data-to="117" data-prefix="$" data-suffix="K+">0</b><span>Google Ads managed</span>
+        </div>
+        <div class="stat">
+          <b class="count" data-to="9.08" data-dec="2" data-suffix="×">0</b><span>Peak ROAS</span>
+        </div>
+        <div class="stat">
+          <b class="count" data-to="2400" data-suffix="+">0</b><span>Leads driven</span>
+        </div>
+        <div class="stat">
+          <b class="count" data-to="5" data-suffix="">0</b><span>Ad platforms</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span></span> scroll</div>
+  </section>
+
+  <!-- ── marquee ──────────────────────────────────────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Google Ads</span><i>✳</i>
+      <span>Meta Ads</span><i>✳</i>
+      <span>Apple Search Ads</span><i>✳</i>
+      <span>TikTok Ads</span><i>✳</i>
+      <span>GA4 &amp; Firebase</span><i>✳</i>
+      <span>Shopee &amp; Lazada</span><i>✳</i>
+      <span>YouTube</span><i>✳</i>
+      <span>QuantCast</span><i>✳</i>
+      <span>Google Ads</span><i>✳</i>
+      <span>Meta Ads</span><i>✳</i>
+      <span>Apple Search Ads</span><i>✳</i>
+      <span>TikTok Ads</span><i>✳</i>
+      <span>GA4 &amp; Firebase</span><i>✳</i>
+      <span>Shopee &amp; Lazada</span><i>✳</i>
+      <span>YouTube</span><i>✳</i>
+      <span>QuantCast</span><i>✳</i>
+    </div>
+  </div>
+
+  <!-- ── services ─────────────────────────────────────────── -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">01 — What I do</p>
+        <h2 class="sec-title reveal">Full-funnel, end to end —<br />not just the ad account.</h2>
+        <p class="sec-sub reveal">
+          Six disciplines that have to work together before spend does anything useful:
+          the buying, the measurement underneath it, and the page it all lands on.
+        </p>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card__num">01</span>
+          <h3>Media Buying</h3>
+          <p>Paid acquisition across search, social, programmatic, and marketplace — structured around real conversion signals and unit economics.</p>
+          <ul class="tags"><li>Search</li><li>Paid social</li><li>Programmatic</li><li>Marketplace</li></ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__num">02</span>
+          <h3>Analytics &amp; Measurement</h3>
+          <p>GA4, Firebase, and GTM tracking architecture, conversion imports, and call-tracking attribution that decisions can actually rely on.</p>
+          <ul class="tags"><li>GA4</li><li>GTM</li><li>Firebase</li><li>Call tracking</li></ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__num">03</span>
+          <h3>App Store Optimisation</h3>
+          <p>Keyword research and title testing across Apple Search Ads and Google data to win organic install visibility.</p>
+          <ul class="tags"><li>ASO</li><li>Keyword research</li><li>Title testing</li></ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__num">04</span>
+          <h3>Brand &amp; Content</h3>
+          <p>Positioning, content engines, and community strategy that give the paid media something worth clicking.</p>
+          <ul class="tags"><li>Positioning</li><li>Content</li><li>Community</li></ul>
+        </article>
+
+        <article class="card reveal">
+          <span class="card__num">05</span>
+          <h3>Conversion &amp; Web</h3>
+          <p>Shopify Liquid builds, WordPress landing pages, and CRO — fixing where traffic lands, not just how it arrives.</p>
+          <ul class="tags"><li>Shopify</li><li>WordPress</li><li>CRO</li></ul>
+        </article>
+
+        <article class="card card--accent reveal">
+          <span class="card__num">06</span>
+          <h3>Privacy &amp; Compliance</h3>
+          <p>HIPAA, CPRA/CPPA, consent management, and web accessibility for regulated, audit-ready marketing.</p>
+          <ul class="tags"><li>HIPAA</li><li>CPRA/CPPA</li><li>Consent</li><li>Accessibility</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── work ─────────────────────────────────────────────── -->
+  <section class="section section--work" id="work">
+    <div class="wrap">
+      <header class="sec-head sec-head--row">
+        <div>
+          <p class="eyebrow reveal">02 — Selected work</p>
+          <h2 class="sec-title reveal">Where I've driven<br />the number.</h2>
+        </div>
+        <p class="sec-sub reveal">
+          Full-funnel paid media across US healthcare, iOS apps, retail, and automotive —
+          search, social, programmatic, marketplace, and conversational commerce.
+        </p>
+      </header>
+
+      <div class="work">
+
+        <article class="work__item work__item--wide reveal">
+          <div class="work__thumb work__thumb--1">
+            <span class="work__badge">Google Ads · Search</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Six-figure healthcare search account</h3>
+              <span>California Recovery Center</span>
+            </div>
+            <p>
+              US addiction-treatment Search — one of paid media's most regulated, most
+              expensive verticals, where clicks run $8–9.
+            </p>
+            <div class="work__metrics work__metrics--6">
+              <div><b>$117K</b><span>Managed spend</span></div>
+              <div><b>7.56%</b><span>Conversion rate</span></div>
+              <div><b>1,051</b><span>Conversions</span></div>
+              <div><b>~3.5×</b><span>Approx. ROAS</span></div>
+              <div><b>$112</b><span>Cost per lead</span></div>
+              <div><b>343K</b><span>Impressions</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>Account architecture</dt>
+                <dd>Seven themed ad groups — Outpatient, Residential, Detox, Addiction Continuation, Insurance, and DUI Program. Residential led at 8.95% CVR; Outpatient drove 366 conversions.</dd>
+              </div>
+              <div>
+                <dt>What set it apart</dt>
+                <dd>Testing an AI Max ad group against manual structures, with disciplined UTM tagging and conversion tracking end to end.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item reveal">
+          <div class="work__thumb work__thumb--2">
+            <span class="work__badge">Marketplace PPC</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Marketplace PPC at 9× return</h3>
+              <span>Executive Optical</span>
+            </div>
+            <p>
+              Keyword search and item-recommendation placements on Shopee and Lazada for the
+              Philippines' largest optical retailer — bid against GMV, not clicks.
+            </p>
+            <div class="work__metrics">
+              <div><b>9.08×</b><span>ROAS</span></div>
+              <div><b>$52K</b><span>Merch value</span></div>
+              <div><b>151K</b><span>Clicks</span></div>
+              <div><b>$5.7K</b><span>Budget spent</span></div>
+              <div><b>3.69%</b><span>CTR</span></div>
+              <div><b>4.1M</b><span>Impressions</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>What I did</dt>
+                <dd>Rebuilt shopfronts and listings for search visibility, split spend between keyword search and item recommendations, pruned bids against GMV. Jan 2021 – Dec 2022; playbook later extended to Zalora, GrabMart, and Pickaroo.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item reveal">
+          <div class="work__thumb work__thumb--3">
+            <span class="work__badge">Meta CPAS</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Motive-led creative on CPAS</h3>
+              <span>Executive Optical</span>
+            </div>
+            <p>
+              Built creative against distinct purchase motives — not another payday-sale
+              asset — with copy pulled from real customer objections.
+            </p>
+            <div class="work__metrics">
+              <div><b>5.97×</b><span>ROAS ▲ 59.9%</span></div>
+              <div><b>$0.98</b><span>Cost/item ▼ 38.4%</span></div>
+              <div><b>$0.16</b><span>Cost/ATC ▼ 46.5%</span></div>
+              <div><b>3.66%</b><span>CTR ▲ 2.77%</span></div>
+              <div><b>44.5M</b><span>Impressions</span></div>
+              <div><b>70/30</b><span>Prospect/retarget</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>Context</dt>
+                <dd>Part of a broader 2022–2023 social programme spanning 138 ads and 44.5M impressions on $13.6K total spend.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item work__item--wide reveal">
+          <div class="work__thumb work__thumb--4">
+            <span class="work__badge">Meta · Click-to-Messenger</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Messaging-led sales engine at scale</h3>
+              <span>NXT Gen Garage</span>
+            </div>
+            <p>
+              A three-year, always-on conversational-commerce programme for a 4×4 off-road
+              shop — driving buyers into Messenger for complete builds, maintenance, and services.
+            </p>
+            <div class="work__metrics work__metrics--6">
+              <div><b>25,227</b><span>Conversations</span></div>
+              <div><b>$1.43</b><span>Cost/conversation</span></div>
+              <div><b>$40.6K</b><span>Managed spend</span></div>
+              <div><b>28.6M</b><span>Impressions</span></div>
+              <div><b>6.93M</b><span>Reach</span></div>
+              <div><b>41</b><span>Campaigns, 3-yr run</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>What I did</dt>
+                <dd>Ran sustained Click-to-Messenger campaigns — SuperSale, BERMONTHS, and always-on promos — turning ad spend into direct sales conversations for builds and services.</dd>
+              </div>
+              <div>
+                <dt>Consistency</dt>
+                <dd>Held cost-per-conversation near $1.43 across three years and 41 campaigns, with top performers (HOT PROMO at $1.18) beating the account average.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item reveal">
+          <div class="work__thumb work__thumb--5">
+            <span class="work__badge">Apple Search Ads</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Efficient iOS acquisition on ASA</h3>
+              <span>iOS app portfolio</span>
+            </div>
+            <p>
+              Keyword-driven installs where a 46% tap-to-install rate signals a strong
+              keyword-to-product-page match.
+            </p>
+            <div class="work__metrics">
+              <div><b>417</b><span>App installs</span></div>
+              <div><b>$1.73</b><span>Cost per install</span></div>
+              <div><b>46.2%</b><span>Tap-to-install</span></div>
+              <div><b>$0.80</b><span>Cost per tap</span></div>
+              <div><b>2.66%</b><span>Tap-through rate</span></div>
+              <div><b>$0.45</b><span>Best-day CPI</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>Approach</dt>
+                <dd>Keyword and product-page targeting tuned so tapped users converted nearly half the time — efficiency came from intent match, not volume buying. Pushed daily test spend to find volume ceilings while holding CPA.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item reveal">
+          <div class="work__thumb work__thumb--6">
+            <span class="work__badge">Meta · App install funnel</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Full-funnel installs across two apps</h3>
+              <span>Dog Translator · Solos Music AI</span>
+            </div>
+            <p>
+              Cheap installs and trials across the portfolio, then a sharp drop at subscribe —
+              confirming the paywall, not the media, as the bottleneck.
+            </p>
+            <div class="work__metrics">
+              <div><b>1,843</b><span>App installs</span></div>
+              <div><b>$0.90–1.09</b><span>Cost per install</span></div>
+              <div><b>250</b><span>Trials</span></div>
+              <div><b>$5.09</b><span>Cost per trial</span></div>
+              <div><b>$4.9K</b><span>Combined spend</span></div>
+              <div><b>2 apps</b><span>Portfolio scope</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>Structure</dt>
+                <dd>Dog Translator: $4K → 1,417 installs at $1.09, 250 trials at $5.09. Solos Music AI: $821 → 426 installs at $0.90 — broad creative test into event-optimised campaigns.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="work__item reveal">
+          <div class="work__thumb work__thumb--7">
+            <span class="work__badge">YouTube · Video</span>
+          </div>
+          <div class="work__body">
+            <div class="work__title">
+              <h3>Video launch at $1.19 CPM</h3>
+              <span>Executive Optical × Zalora</span>
+            </div>
+            <p>
+              Bumper and skippable video to grow awareness in the Zalora customer base,
+              planned with Google Keyword Planner.
+            </p>
+            <div class="work__metrics">
+              <div><b>930K</b><span>Impressions</span></div>
+              <div><b>$1.19</b><span>Average CPM</span></div>
+              <div><b>5.97%</b><span>Engagement rate</span></div>
+              <div><b>$1,250</b><span>Total spend</span></div>
+              <div><b>3</b><span>Ad groups</span></div>
+              <div><b>6/15/30s</b><span>Hook lengths</span></div>
+            </div>
+            <dl class="work__notes">
+              <div>
+                <dt>Outcome</dt>
+                <dd>Three ad groups by length — 6-second bumpers plus 15s and 30s video — testing hook duration against the intended market. Genuine view-through, not just served impressions.</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── approach ─────────────────────────────────────────── -->
+  <section class="section" id="approach">
+    <div class="wrap process">
+      <div class="process__sticky">
+        <p class="eyebrow reveal">03 — How I work</p>
+        <h2 class="sec-title reveal">Ownership of<br />revenue.</h2>
+        <p class="sec-sub reveal">
+          It's the difference between reporting metrics and moving the number. Every
+          engagement runs the same loop, in the same order — because buying against a
+          broken signal just spends faster.
+        </p>
+        <a href="#contact" class="btn btn--primary magnetic reveal">Start a conversation <i>→</i></a>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n">01</span>
+          <div>
+            <h3>Audit the measurement layer</h3>
+            <p>GA4, GTM, Firebase, pixel and CAPI, call tracking. Before a single bid changes, the numbers the account optimises toward have to be true.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">02</span>
+          <div>
+            <h3>Find where the funnel breaks</h3>
+            <p>Impression to click to landing to purchase. Cheap installs with a dead subscribe step is a paywall problem, not a media problem — and the fix costs nothing in ad spend.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">03</span>
+          <div>
+            <h3>Buy against the real signal</h3>
+            <p>Account structure by intent theme, creative built against purchase motive, bids set on unit economics — GMV and revenue, not clicks.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">04</span>
+          <div>
+            <h3>Hold the efficiency while scaling</h3>
+            <p>Push test spend to find the volume ceiling without letting CPA drift. Three years and 41 campaigns at a $1.43 cost per conversation is the version of this that works.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── experience ───────────────────────────────────────── -->
+  <section class="section section--work" id="experience">
+    <div class="wrap">
+      <header class="sec-head sec-head--row">
+        <div>
+          <p class="eyebrow reveal">04 — Experience highlights</p>
+          <h2 class="sec-title reveal">9+ years, five<br />ad platforms.</h2>
+        </div>
+        <p class="sec-sub reveal">
+          Client-side, agency-side, and in-house — across regulated US healthcare,
+          global hardware distribution, and Philippine retail and eCommerce.
+        </p>
+      </header>
+
+      <ul class="roles">
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>California Recovery Center</h3>
+            <span class="role__meta">Marketing Supervisor · Healthcare</span>
+          </div>
+          <p>Multi-channel US patient acquisition — Google Search, programmatic (QuantCast, MNTN), and paid social — plus HIPAA, CPRA/CPPA tracking compliance and web accessibility.</p>
+        </li>
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>Executive Optical</h3>
+            <span class="role__meta">Head of Digital &amp; Online Sales · eCommerce</span>
+          </div>
+          <p>Owned digital for the Philippines' largest optical retailer — marketplace PPC, Meta CPAS, YouTube video, plus website revamp, chatbot, and messaging infrastructure.</p>
+        </li>
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>Ubertech Inc.</h3>
+            <span class="role__meta">Channel Marketing · Tech Distribution</span>
+          </div>
+          <p>Managed channel and co-op ad budgets for global hardware brands — Nvidia, Corsair, AMD, Elgato, Palit, Sapphire, Synology, and Gigabyte.</p>
+        </li>
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>NXT Gen Garage</h3>
+            <span class="role__meta">Media Buyer · 4×4 Off-Road</span>
+          </div>
+          <p>Three-year always-on Click-to-Messenger engine driving buyers into sales conversations for complete builds, maintenance, and services.</p>
+        </li>
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>Chapter One</h3>
+            <span class="role__meta">Paid UA · iOS App Portfolio</span>
+          </div>
+          <p>iOS user acquisition across Apple Search Ads, Meta, Google App Campaigns, and TikTok — plus the Firebase/attribution diagnosis, including analysis of event manager setup.</p>
+        </li>
+        <li class="role reveal">
+          <div class="role__head">
+            <h3>MerQado PH</h3>
+            <span class="role__meta">Digital Ops &amp; Brand Strategy · eCommerce</span>
+          </div>
+          <p>Full-loop ownership for a Filipino food brand — positioning, content, Shopify build, and full-funnel Meta/TikTok across B2C and B2B negosyo audiences.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── stack ────────────────────────────────────────────── -->
+  <section class="section" id="stack">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">05 — Tools &amp; stack</p>
+        <h2 class="sec-title reveal">The kit behind<br />the results.</h2>
+        <p class="sec-sub reveal">
+          The platforms and systems I run day to day — from buying and measurement to
+          store ops and reporting.
+        </p>
+      </header>
+
+      <div class="stack">
+        <div class="stack__col reveal">
+          <h3>Ad platforms</h3>
+          <ul>
+            <li>Google Ads</li><li>Meta Ads Manager</li><li>Apple Search Ads</li>
+            <li>TikTok Ads</li><li>Google App Campaigns</li><li>YouTube Ads</li><li>QuantCast</li>
+          </ul>
+        </div>
+        <div class="stack__col reveal">
+          <h3>Analytics &amp; measurement</h3>
+          <ul>
+            <li>GA4</li><li>Firebase</li><li>Google Tag Manager</li><li>Meta Pixel / CAPI</li>
+            <li>SKAdNetwork</li><li>CallRail</li><li>CallTrackingMetrics</li><li>App Store Connect</li>
+          </ul>
+        </div>
+        <div class="stack__col reveal">
+          <h3>Reporting &amp; research</h3>
+          <ul>
+            <li>Ahrefs</li><li>SEMrush</li><li>BrightLocal</li><li>Google Ads Editor</li>
+            <li>Google Business Profile</li><li>Gemini</li><li>ChatGPT</li><li>Claude</li><li>Copilot</li>
+          </ul>
+        </div>
+        <div class="stack__col reveal">
+          <h3>Messaging &amp; CRM</h3>
+          <ul>
+            <li>Meta Business Suite</li><li>MessageBird</li><li>Viber Chatbot</li>
+            <li>Google Business Messages</li>
+          </ul>
+        </div>
+        <div class="stack__col reveal">
+          <h3>Commerce &amp; web</h3>
+          <ul>
+            <li>Shopify (Liquid)</li><li>WordPress / Divi</li><li>Shopee Seller Center</li>
+            <li>Lazada Seller Center</li><li>TikTok Shop</li><li>Zalora</li>
+          </ul>
+        </div>
+        <div class="stack__col reveal">
+          <h3>Creative &amp; productivity</h3>
+          <ul>
+            <li>Canva</li><li>Magnific (Freepik)</li><li>Google Flow Labs</li>
+            <li>VoiceBooking</li><li>Google Workspace</li><li>Microsoft 365</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── about ────────────────────────────────────────────── -->
+  <section class="section section--about" id="about">
+    <div class="wrap about">
+      <div class="about__visual reveal">
+        <div class="about__portrait"><span>AM</span></div>
+        <div class="about__chip">
+          <b>Aloysius Magtoto</b>
+          <span>Registered Marketing Professional</span>
+        </div>
+      </div>
+
+      <div class="about__body">
+        <p class="eyebrow reveal">06 — A marketer's perspective</p>
+        <h2 class="sec-title reveal">Full-funnel digital<br />mastery.</h2>
+        <p class="sec-sub reveal">
+          Nine-plus years buying media across five ad platforms — US healthcare, iOS app
+          portfolios, global hardware distribution, Philippine retail and eCommerce. The
+          common thread is that I've owned the revenue line, not just the ad account.
+        </p>
+        <p class="sec-sub reveal">
+          That means the measurement architecture is mine too: GA4 and Firebase events,
+          conversion imports, call-tracking attribution, HIPAA and CPRA/CPPA compliance
+          in a vertical where getting it wrong is not a reporting problem. Then the page
+          the traffic lands on — Shopify Liquid, WordPress, CRO — because a good click
+          into a bad landing page is still a wasted click.
+        </p>
+
+        <ul class="chips reveal">
+          <li>Google Ads</li><li>Meta</li><li>Apple Search Ads</li><li>TikTok</li>
+          <li>GA4</li><li>GTM</li><li>Firebase</li><li>Shopify</li><li>HIPAA</li><li>CPRA/CPPA</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── contact ──────────────────────────────────────────── -->
+  <section class="section section--cta" id="contact">
+    <div class="wrap cta">
+      <div class="cta__copy">
+        <p class="eyebrow reveal">07 — Get in touch</p>
+        <h2 class="cta__title reveal">Ready to move<br /><span class="grad">your number?</span></h2>
+        <p class="sec-sub reveal">
+          Ready to discuss how we can elevate your marketing strategy together? Send over
+          the account, the vertical, and what's not working — I'll tell you where I'd look first.
+        </p>
+
+        <div class="cta__direct reveal">
+          <a href="mailto:aloymagtoto@gmail.com" class="cta__mail" data-cursor="copy">aloymagtoto@gmail.com</a>
+          <ul class="contact-list">
+            <li>
+              <span>Phone · WhatsApp · Viber</span>
+              <a href="tel:+639171737602">0917 173 7602</a>
+            </li>
+            <li>
+              <span>LinkedIn</span>
+              <a href="https://linkedin.com/in/aloymagtoto" target="_blank" rel="noopener">linkedin.com/in/aloymagtoto</a>
+            </li>
+            <li>
+              <span>Based in</span>
+              <b>Philippines · GMT+8, working US hours</b>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <input type="text" id="name" name="name" placeholder=" " required />
+          <label for="name">Your name</label>
+        </div>
+        <div class="field">
+          <input type="email" id="email" name="email" placeholder=" " required />
+          <label for="email">Email</label>
+        </div>
+        <div class="field">
+          <input type="text" id="company" name="company" placeholder=" " />
+          <label for="company">Company <em>(optional)</em></label>
+        </div>
+
+        <fieldset class="field field--pills">
+          <legend>What do you need?</legend>
+          <div class="pills">
+            <label><input type="checkbox" name="scope" value="Media buying" /><span>Media buying</span></label>
+            <label><input type="checkbox" name="scope" value="Tracking audit" /><span>Tracking audit</span></label>
+            <label><input type="checkbox" name="scope" value="App UA" /><span>App UA</span></label>
+            <label><input type="checkbox" name="scope" value="Marketplace" /><span>Marketplace</span></label>
+            <label><input type="checkbox" name="scope" value="CRO / web" /><span>CRO / web</span></label>
+            <label><input type="checkbox" name="scope" value="Full-time role" /><span>Full-time role</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+          <label for="message">The short version</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block magnetic">
+          Send it <i>→</i>
+        </button>
+        <p class="form__note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ── footer ───────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <p class="footer__label">Based in</p>
+        <p>Philippines · GMT+8<br />Working US hours</p>
+      </div>
+      <div>
+        <p class="footer__label">Menu</p>
+        <a href="#services">What I do</a><br />
+        <a href="#work">Work</a><br />
+        <a href="#experience">Experience</a><br />
+        <a href="#stack">Stack</a><br />
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <a href="https://linkedin.com/in/aloymagtoto" target="_blank" rel="noopener">LinkedIn</a><br />
+        <a href="mailto:aloymagtoto@gmail.com">Email</a><br />
+        <a href="tel:+639171737602">0917 173 7602</a>
+      </div>
+    </div>
+
+    <div class="footer__mark" aria-hidden="true">ALOY MAGTOTO</div>
+
+    <div class="footer__bottom">
+      <p>© <span id="year">2026</span> Aloysius Magtoto — Registered Marketing Professional</p>
+      <a href="#top" class="footer__up magnetic">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+<script>
+/* =========================================================
+   Digital AQM — interactions
+   Vanilla JS, no dependencies.
+   ========================================================= */
+(() => {
+  'use strict';
+
+  const $  = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine    = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ── loader ───────────────────────────────────────────── */
+  const loader = $('#loader');
+  const bar    = $('#loaderBar');
+  const count  = $('#loaderCount');
+
+  const finishLoad = () => {
+    document.body.style.overflow = '';
+    loader.classList.add('done');
+    setTimeout(() => loader.remove(), 700);
+  };
+
+  if (reduced) {
+    finishLoad();
+  } else {
+    document.body.style.overflow = 'hidden';
+    let n = 0;
+    const tick = setInterval(() => {
+      n = Math.min(100, n + Math.random() * 14);
+      bar.style.width = n + '%';
+      count.textContent = Math.round(n);
+      if (n >= 100) {
+        clearInterval(tick);
+        setTimeout(finishLoad, 320);
+      }
+    }, 90);
+    // Never trap the page if something stalls.
+    setTimeout(() => { clearInterval(tick); finishLoad(); }, 4000);
+  }
+
+  /* ── theme ────────────────────────────────────────────── */
+  const root   = document.documentElement;
+  const toggle = $('#themeToggle');
+  const stored = localStorage.getItem('aqm-theme');
+  if (stored) root.dataset.theme = stored;
+
+  toggle.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = next;
+    localStorage.setItem('aqm-theme', next);
+    $('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0a0a0b' : '#f2f1ee');
+  });
+
+  /* ── mobile menu ──────────────────────────────────────── */
+  const burger = $('#burger');
+  const links  = $('#navLinks');
+  let menuOpen = false;
+
+  const setMenu = (open) => {
+    menuOpen = open;
+    links.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  burger.addEventListener('click', () => setMenu(!menuOpen));
+  $$('#navLinks a').forEach(a => a.addEventListener('click', () => menuOpen && setMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menuOpen) setMenu(false); });
+
+  /* ── nav: sticky + hide on scroll down ────────────────── */
+  const nav = $('#nav');
+  const cue = $('.scroll-cue');
+  let lastY = window.scrollY;
+
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('stuck', y > 30);
+    nav.classList.toggle('hide', y > 480 && y > lastY && !menuOpen);
+    cue.classList.toggle('gone', y > 60);
+    lastY = y;
+  }, { passive: true });
+
+  /* ── reveal on scroll ─────────────────────────────────── */
+  const revealables = $$('.reveal');
+
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealables.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        // Stagger siblings so grids cascade instead of popping as a block.
+        const siblings = [...entry.target.parentElement.children].filter(n => n.classList.contains('reveal'));
+        const i = Math.max(0, siblings.indexOf(entry.target));
+        entry.target.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
+        entry.target.classList.add('in');
+        obs.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealables.forEach(el => io.observe(el));
+  }
+
+  /* ── counters ─────────────────────────────────────────── */
+  const counters = $$('.count');
+  const runCount = (el) => {
+    const to     = parseFloat(el.dataset.to);
+    const dec    = parseInt(el.dataset.dec || '0', 10);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    // 2400 reads better as 2,400 — but only when there are no decimals in play.
+    const fmt = (v) => prefix + (dec
+      ? v.toFixed(dec)
+      : Math.round(v).toLocaleString('en-US')) + suffix;
+
+    if (reduced) { el.textContent = fmt(to); return; }
+
+    const dur = 1500;
+    const t0  = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(to * eased);
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  if ('IntersectionObserver' in window) {
+    const cio = new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        runCount(e.target);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(el => cio.observe(el));
+  } else {
+    counters.forEach(runCount);
+  }
+
+  /* ── card spotlight ───────────────────────────────────── */
+  $$('.card').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+    });
+  });
+
+  /* ── custom cursor + magnetic buttons ─────────────────── */
+  if (fine && !reduced) {
+    const cursor = $('#cursor');
+    const label  = $('#cursorLabel');
+    let cx = 0, cy = 0, tx = 0, ty = 0;
+
+    window.addEventListener('pointermove', e => {
+      tx = e.clientX; ty = e.clientY;
+      cursor.classList.add('on');
+    }, { passive: true });
+
+    (function loop() {
+      cx += (tx - cx) * 0.18;
+      cy += (ty - cy) * 0.18;
+      cursor.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%)`;
+      requestAnimationFrame(loop);
+    })();
+
+    $$('[data-cursor]').forEach(el => {
+      el.addEventListener('pointerenter', () => {
+        label.textContent = el.dataset.cursor;
+        cursor.classList.add('hot');
+      });
+      el.addEventListener('pointerleave', () => {
+        cursor.classList.remove('hot');
+        label.textContent = '';
+      });
+    });
+
+    $$('.magnetic').forEach(el => {
+      const strength = 0.28;
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        el.style.transform = `translate(${dx * strength}px, ${dy * strength}px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+
+    /* orbs drift with the pointer — cheap parallax */
+    const orbs = $$('.orb');
+    window.addEventListener('pointermove', e => {
+      const nx = (e.clientX / window.innerWidth - 0.5);
+      const ny = (e.clientY / window.innerHeight - 0.5);
+      orbs.forEach((orb, i) => {
+        const d = (i + 1) * 26;
+        orb.style.transform = `translate(${nx * d}px, ${ny * d}px)`;
+      });
+    }, { passive: true });
+  }
+
+  /* ── email: click to copy ─────────────────────────────── */
+  const mail = $('.cta__mail');
+  if (mail && navigator.clipboard) {
+    mail.addEventListener('click', async (e) => {
+      if (e.metaKey || e.ctrlKey) return;          // let modified clicks behave normally
+      e.preventDefault();
+      const original = mail.textContent;
+      try {
+        await navigator.clipboard.writeText(original);
+        mail.textContent = 'copied ✓';
+        setTimeout(() => { mail.textContent = original; }, 1600);
+      } catch {
+        window.location.href = mail.getAttribute('href');
+      }
+    });
+  }
+
+  /* ── contact form ─────────────────────────────────────── */
+  const form = $('#contactForm');
+  const note = $('#formNote');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    note.className = 'form__note';
+
+    let valid = true;
+    $$('.field', form).forEach(f => {
+      const input = $('input[required], textarea[required]', f);
+      if (!input) return;
+      const ok = input.checkValidity() && input.value.trim() !== '';
+      f.classList.toggle('invalid', !ok);
+      if (!ok) valid = false;
+    });
+
+    if (!valid) {
+      note.textContent = 'A couple of fields still need you.';
+      note.classList.add('err');
+      return;
+    }
+
+    // No backend wired up yet — hand off to the mail client so nothing is lost.
+    const data  = new FormData(form);
+    const scope = data.getAll('scope').join(', ') || 'Not specified';
+    const body  = [
+      `Name: ${data.get('name')}`,
+      `Email: ${data.get('email')}`,
+      `Company: ${data.get('company') || '—'}`,
+      `Scope: ${scope}`,
+      '',
+      data.get('message')
+    ].join('\n');
+
+    window.location.href =
+      `mailto:aloymagtoto@gmail.com?subject=${encodeURIComponent('New project enquiry — ' + data.get('name'))}` +
+      `&body=${encodeURIComponent(body)}`;
+
+    note.textContent = 'Opening your mail app — hit send and I\'ll reply within two working days.';
+    note.classList.add('ok');
+    form.reset();
+  });
+
+  /* ── misc ─────────────────────────────────────────────── */
+  $('#year').textContent = new Date().getFullYear();
+})();
+
+</script>
+</body>
+</html>
