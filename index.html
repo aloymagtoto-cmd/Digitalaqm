@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Digital AQM — Brand & Growth Studio</title>
+<meta name="description" content="Digital AQM is an independent brand and growth studio building sharp identities, fast websites, and campaigns that actually convert." />
+<meta name="theme-color" content="#0a0a0b" />
+
+<meta property="og:title" content="Digital AQM — Brand & Growth Studio" />
+<meta property="og:description" content="Independent brand and growth studio. Identity, web, and performance marketing for companies that refuse to blend in." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/style.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23050506'/><circle cx='50' cy='50' r='22' fill='%23d6ff3f'/></svg>" />
+</head>
+<body>
+
+<!-- ── loader ─────────────────────────────────────────────── -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <span class="loader__mark">AQM</span>
+    <span class="loader__count" id="loaderCount">0</span>
+  </div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+</div>
+
+<!-- ── ambient layers ─────────────────────────────────────── -->
+<div class="grain" aria-hidden="true"></div>
+<div class="orb orb--a" aria-hidden="true"></div>
+<div class="orb orb--b" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+<a class="skip" href="#work">Skip to content</a>
+
+<!-- ── nav ────────────────────────────────────────────────── -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav__logo" data-cursor="home">
+    <span class="nav__dot"></span>
+    <span>Digital<b>AQM</b></span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="nav__cta">Start a project <i>→</i></a>
+  </nav>
+
+  <div class="nav__tools">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+      <span class="theme-toggle__thumb"></span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ── hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <div class="wrap hero__inner">
+      <p class="eyebrow reveal"><span class="pulse"></span> Available for new work — Q3 2026</p>
+
+      <h1 class="hero__title">
+        <span class="line"><span>Brands that</span></span>
+        <span class="line"><span>refuse to be</span></span>
+        <span class="line"><span class="grad">ignored.</span></span>
+      </h1>
+
+      <div class="hero__meta">
+        <p class="hero__lede reveal">
+          Digital AQM is an independent brand &amp; growth studio. We build identities,
+          websites, and campaigns for founders who would rather be talked about than
+          politely tolerated.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a href="#contact" class="btn btn--primary magnetic" data-cursor="let's talk">
+            Start a project <i>→</i>
+          </a>
+          <a href="#work" class="btn btn--ghost magnetic">See the work</a>
+        </div>
+      </div>
+
+      <div class="hero__stats reveal">
+        <div class="stat"><b class="count" data-to="128" data-suffix="+">0</b><span>Projects shipped</span></div>
+        <div class="stat"><b class="count" data-to="312" data-suffix="%">0</b><span>Avg. traffic lift</span></div>
+        <div class="stat"><b class="count" data-to="9" data-suffix=" yrs">0</b><span>In the trenches</span></div>
+        <div class="stat"><b class="count" data-to="41" data-suffix="">0</b><span>Happy founders</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true"><span></span> scroll</div>
+  </section>
+
+  <!-- ── marquee ──────────────────────────────────────────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Brand Identity</span><i>✳</i>
+      <span>Web Design</span><i>✳</i>
+      <span>Performance Ads</span><i>✳</i>
+      <span>Content Systems</span><i>✳</i>
+      <span>SEO</span><i>✳</i>
+      <span>Social Strategy</span><i>✳</i>
+      <span>Brand Identity</span><i>✳</i>
+      <span>Web Design</span><i>✳</i>
+      <span>Performance Ads</span><i>✳</i>
+      <span>Content Systems</span><i>✳</i>
+      <span>SEO</span><i>✳</i>
+      <span>Social Strategy</span><i>✳</i>
+    </div>
+  </div>
+
+  <!-- ── services ─────────────────────────────────────────── -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">01 — Capabilities</p>
+        <h2 class="sec-title reveal">Everything you need to<br />look bigger than you are.</h2>
+        <p class="sec-sub reveal">
+          One studio, one thread of thinking — from the first sketch of a logo to the
+          last line of ad copy. No handoffs, no telephone game.
+        </p>
+      </header>
+
+      <div class="cards">
+        <article class="card reveal" data-cursor="view">
+          <span class="card__num">01</span>
+          <h3>Brand Identity</h3>
+          <p>Naming, logo systems, type, colour, and a voice that sounds like a human wrote it. Delivered as a guideline your whole team can actually use.</p>
+          <ul class="tags"><li>Logo systems</li><li>Guidelines</li><li>Voice &amp; tone</li></ul>
+        </article>
+
+        <article class="card reveal" data-cursor="view">
+          <span class="card__num">02</span>
+          <h3>Web Design &amp; Build</h3>
+          <p>Fast, accessible sites with motion that earns its keep. Designed in the browser, shipped on modern stacks, measured from day one.</p>
+          <ul class="tags"><li>Landing pages</li><li>Webflow / Next.js</li><li>CRO</li></ul>
+        </article>
+
+        <article class="card reveal" data-cursor="view">
+          <span class="card__num">03</span>
+          <h3>Performance Marketing</h3>
+          <p>Meta, Google, and TikTok campaigns built around creative testing — not guesswork. Weekly reporting you can read in ninety seconds.</p>
+          <ul class="tags"><li>Paid social</li><li>Search</li><li>Creative testing</li></ul>
+        </article>
+
+        <article class="card reveal" data-cursor="view">
+          <span class="card__num">04</span>
+          <h3>Content Systems</h3>
+          <p>Repeatable content engines: pillars, formats, hooks, and a calendar that survives contact with a busy month.</p>
+          <ul class="tags"><li>Short-form</li><li>Editorial</li><li>Playbooks</li></ul>
+        </article>
+
+        <article class="card reveal" data-cursor="view">
+          <span class="card__num">05</span>
+          <h3>SEO &amp; Lifecycle</h3>
+          <p>Technical clean-ups, topic clusters, and email flows that keep compounding long after the campaign budget stops.</p>
+          <ul class="tags"><li>Technical SEO</li><li>Email flows</li><li>Analytics</li></ul>
+        </article>
+
+        <article class="card card--accent reveal" data-cursor="let's talk">
+          <span class="card__num">06</span>
+          <h3>Fractional CMO</h3>
+          <p>Not ready for a full marketing hire? Borrow the strategy layer — roadmaps, budgets, and a steady hand on the wheel.</p>
+          <ul class="tags"><li>Strategy</li><li>Roadmaps</li><li>Team coaching</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── work ─────────────────────────────────────────────── -->
+  <section class="section section--work" id="work">
+    <div class="wrap">
+      <header class="sec-head sec-head--row">
+        <div>
+          <p class="eyebrow reveal">02 — Selected work</p>
+          <h2 class="sec-title reveal">Receipts, not<br />mood boards.</h2>
+        </div>
+        <p class="sec-sub reveal">A few recent engagements. Numbers are the client's, measured 90 days post-launch.</p>
+      </header>
+
+      <div class="work">
+        <article class="work__item reveal" data-cursor="case study">
+          <div class="work__thumb work__thumb--1"><span class="work__badge">E-commerce</span></div>
+          <div class="work__body">
+            <div class="work__title"><h3>Halcyon Coffee Co.</h3><span>2026</span></div>
+            <p>Full rebrand and Shopify rebuild for a specialty roaster expanding into wholesale.</p>
+            <div class="work__metrics">
+              <div><b>+212%</b><span>Revenue</span></div>
+              <div><b>2.1s</b><span>LCP</span></div>
+              <div><b>+38%</b><span>AOV</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="work__item reveal" data-cursor="case study">
+          <div class="work__thumb work__thumb--2"><span class="work__badge">SaaS</span></div>
+          <div class="work__body">
+            <div class="work__title"><h3>Northbeam Labs</h3><span>2025</span></div>
+            <p>Positioning, site, and a paid-search engine for a developer analytics platform.</p>
+            <div class="work__metrics">
+              <div><b>-46%</b><span>CAC</span></div>
+              <div><b>3.4×</b><span>Demo rate</span></div>
+              <div><b>+91%</b><span>Organic</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="work__item reveal" data-cursor="case study">
+          <div class="work__thumb work__thumb--3"><span class="work__badge">Hospitality</span></div>
+          <div class="work__body">
+            <div class="work__title"><h3>Casa Verde Resorts</h3><span>2025</span></div>
+            <p>Identity refresh and direct-booking campaign that cut third-party commission dependence.</p>
+            <div class="work__metrics">
+              <div><b>+64%</b><span>Direct bookings</span></div>
+              <div><b>+27%</b><span>Occupancy</span></div>
+              <div><b>1.8×</b><span>ROAS</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="work__item reveal" data-cursor="case study">
+          <div class="work__thumb work__thumb--4"><span class="work__badge">Fintech</span></div>
+          <div class="work__body">
+            <div class="work__title"><h3>Tala Money</h3><span>2024</span></div>
+            <p>Launch campaign and content system for a savings app aimed at first-time investors.</p>
+            <div class="work__metrics">
+              <div><b>84k</b><span>Sign-ups</span></div>
+              <div><b>₱42</b><span>CPA</span></div>
+              <div><b>+150%</b><span>Retention</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── process ──────────────────────────────────────────── -->
+  <section class="section" id="process">
+    <div class="wrap process">
+      <div class="process__sticky">
+        <p class="eyebrow reveal">03 — How it goes</p>
+        <h2 class="sec-title reveal">Four weeks from<br />kickoff to live.</h2>
+        <p class="sec-sub reveal">
+          No 60-page decks nobody reads. A tight loop, shared in public, with something
+          real to look at every single week.
+        </p>
+        <a href="#contact" class="btn btn--primary magnetic reveal" data-cursor="let's talk">Book a kickoff <i>→</i></a>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n">01</span>
+          <div>
+            <h3>Dig</h3>
+            <p>A 90-minute strategy session, a look at your analytics, and interviews with three of your customers. We come back with what's actually broken.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">02</span>
+          <div>
+            <h3>Shape</h3>
+            <p>Positioning, message hierarchy, and two art directions. You pick a lane; we kill the other one without ceremony.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">03</span>
+          <div>
+            <h3>Build</h3>
+            <p>Design and development run in parallel in the browser. You get a staging link on day one and watch it grow.</p>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">04</span>
+          <div>
+            <h3>Compound</h3>
+            <p>Launch, then iterate — creative tests, CRO experiments, and a monthly scorecard that fits on one page.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── about ────────────────────────────────────────────── -->
+  <section class="section section--about" id="about">
+    <div class="wrap about">
+      <div class="about__visual reveal">
+        <div class="about__portrait"><span>AQM</span></div>
+        <div class="about__chip">
+          <b>Aloy Magtoto</b>
+          <span>Founder &amp; Creative Director</span>
+        </div>
+      </div>
+
+      <div class="about__body">
+        <p class="eyebrow reveal">04 — Who you're hiring</p>
+        <h2 class="sec-title reveal">A small studio<br />on purpose.</h2>
+        <p class="sec-sub reveal">
+          I started Digital AQM after nine years split between agency floors and in-house
+          growth teams — long enough to learn that most marketing dies in the gap between
+          the strategy deck and the thing that actually ships.
+        </p>
+        <p class="sec-sub reveal">
+          So this studio stays deliberately small. You work with the person doing the work,
+          projects run in four-week blocks, and every deliverable is something you can put
+          in front of a customer on Monday.
+        </p>
+
+        <ul class="chips reveal">
+          <li>Figma</li><li>Webflow</li><li>Next.js</li><li>Meta Ads</li>
+          <li>Google Ads</li><li>GA4</li><li>Klaviyo</li><li>Ahrefs</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── testimonials ─────────────────────────────────────── -->
+  <section class="section section--quotes">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">05 — Kind words</p>
+        <h2 class="sec-title reveal">What founders say<br />when the invoice clears.</h2>
+      </header>
+
+      <div class="quotes">
+        <figure class="quote reveal">
+          <blockquote>“We'd been through two agencies that sent lovely decks and zero results. Four weeks with Aloy and we had a site that finally sounded like us — and a pipeline that stopped drying up.”</blockquote>
+          <figcaption><b>Marisol Reyes</b><span>CEO, Halcyon Coffee Co.</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <blockquote>“The rare marketing partner who reads the analytics before opening Figma. Our CAC dropped by nearly half in one quarter and nothing about the brand felt cheapened.”</blockquote>
+          <figcaption><b>Dev Ramachandran</b><span>Co-founder, Northbeam Labs</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <blockquote>“Fast, opinionated, and refreshingly allergic to fluff. He told us to kill a campaign we loved and he was right. We book him every year now.”</blockquote>
+          <figcaption><b>Ines Calderon</b><span>GM, Casa Verde Resorts</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── contact ──────────────────────────────────────────── -->
+  <section class="section section--cta" id="contact">
+    <div class="wrap cta">
+      <div class="cta__copy">
+        <p class="eyebrow reveal">06 — Say hello</p>
+        <h2 class="cta__title reveal">Got something<br /><span class="grad">worth building?</span></h2>
+        <p class="sec-sub reveal">
+          Tell me what you're working on. If it's a fit you'll get a plan and a price within
+          two working days. If it isn't, I'll point you at someone better.
+        </p>
+        <div class="cta__direct reveal">
+          <a href="mailto:aloymagtoto@gmail.com" class="cta__mail" data-cursor="copy">aloymagtoto@gmail.com</a>
+          <div class="socials">
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Dribbble">Dribbble</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="form reveal" id="contactForm" novalidate>
+        <div class="field">
+          <input type="text" id="name" name="name" placeholder=" " required />
+          <label for="name">Your name</label>
+        </div>
+        <div class="field">
+          <input type="email" id="email" name="email" placeholder=" " required />
+          <label for="email">Email</label>
+        </div>
+        <div class="field">
+          <input type="text" id="company" name="company" placeholder=" " />
+          <label for="company">Company <em>(optional)</em></label>
+        </div>
+
+        <fieldset class="field field--pills">
+          <legend>What do you need?</legend>
+          <div class="pills">
+            <label><input type="checkbox" name="scope" value="Brand" /><span>Brand</span></label>
+            <label><input type="checkbox" name="scope" value="Website" /><span>Website</span></label>
+            <label><input type="checkbox" name="scope" value="Ads" /><span>Ads</span></label>
+            <label><input type="checkbox" name="scope" value="Content" /><span>Content</span></label>
+            <label><input type="checkbox" name="scope" value="Not sure yet" /><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <textarea id="message" name="message" rows="4" placeholder=" " required></textarea>
+          <label for="message">The short version</label>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block magnetic">
+          Send it <i>→</i>
+        </button>
+        <p class="form__note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ── footer ───────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <p class="footer__label">Studio</p>
+        <p>Manila, Philippines<br />Working worldwide, GMT+8</p>
+      </div>
+      <div>
+        <p class="footer__label">Menu</p>
+        <a href="#services">Services</a><br />
+        <a href="#work">Work</a><br />
+        <a href="#about">About</a><br />
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <p class="footer__label">Now</p>
+        <p>Booking projects for<br />Q3 &amp; Q4 2026</p>
+      </div>
+    </div>
+
+    <div class="footer__mark" aria-hidden="true">DIGITAL AQM</div>
+
+    <div class="footer__bottom">
+      <p>© <span id="year">2026</span> Digital AQM. All rights reserved.</p>
+      <a href="#top" class="footer__up magnetic">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
