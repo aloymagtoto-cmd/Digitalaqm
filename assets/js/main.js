@@ -70,12 +70,14 @@
 
   /* ── nav: sticky + hide on scroll down ────────────────── */
   const nav = $('#nav');
+  const cue = $('.scroll-cue');
   let lastY = window.scrollY;
 
   window.addEventListener('scroll', () => {
     const y = window.scrollY;
     nav.classList.toggle('stuck', y > 30);
     nav.classList.toggle('hide', y > 480 && y > lastY && !menuOpen);
+    cue.classList.toggle('gone', y > 60);
     lastY = y;
   }, { passive: true });
 
@@ -104,15 +106,22 @@
   const counters = $$('.count');
   const runCount = (el) => {
     const to     = parseFloat(el.dataset.to);
+    const dec    = parseInt(el.dataset.dec || '0', 10);
+    const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
-    if (reduced) { el.textContent = to + suffix; return; }
+    // 2400 reads better as 2,400 — but only when there are no decimals in play.
+    const fmt = (v) => prefix + (dec
+      ? v.toFixed(dec)
+      : Math.round(v).toLocaleString('en-US')) + suffix;
+
+    if (reduced) { el.textContent = fmt(to); return; }
 
     const dur = 1500;
     const t0  = performance.now();
     const step = (now) => {
       const p = Math.min(1, (now - t0) / dur);
       const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(to * eased) + suffix;
+      el.textContent = fmt(to * eased);
       if (p < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
