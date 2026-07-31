@@ -1,5 +1,37 @@
 # Putting this site on your GoDaddy domain
 
+## Your setup
+
+Checked against the GoDaddy account on 31 Jul 2026:
+
+- **`digitalaqm.com`** — owned, with DNS managed at GoDaddy
+- **Websites + Marketing (Free)** — the drag-and-drop builder. Can't run custom HTML/CSS/JS
+- **Managed WordPress** — free *trial*, not started
+- **Professional Email Pro Light** — `aloy@digitalaqm.com` ← **this depends on the domain's DNS**
+- **No cPanel / web hosting**
+
+The domain currently resolves to GoDaddy's parked placeholder page (`13.248.243.5`,
+`76.223.105.230`), so nothing real is being served on it yet — nothing to take down.
+
+**→ Follow [Path B](#path-b--domain-only).** Host free on GitHub Pages, point the domain at
+it. The Websites + Marketing free plan can't do this design and doesn't need cancelling —
+just leave it alone.
+
+> ### ⚠️ Do not break your email
+>
+> `aloy@digitalaqm.com` runs on this domain's DNS. When you edit DNS records:
+>
+> - **Only** touch the **A** records for `@` and the **CNAME** for `www`
+> - **Never** delete or edit **MX** records, **TXT** records (SPF/DKIM/verification), or
+>   CNAMEs named `autodiscover`, `email`, `_domainconnect`, or similar
+> - **Do not change the nameservers.** Some hosts ask you to point nameservers at them —
+>   that moves *all* DNS away from GoDaddy and takes your email with it. Keep GoDaddy as
+>   the DNS host and just add records.
+>
+> Screenshot the DNS page before you change anything.
+
+---
+
 ## First: work out what you actually bought
 
 Log in to GoDaddy → **My Products**. What you see there decides everything below.
@@ -48,38 +80,54 @@ drag the files into `public_html`.
 You don't need GoDaddy hosting at all. Host the site free on GitHub Pages or Netlify and
 point the domain at it. This is also the better option than paying for basic hosting.
 
-### Step 1 — publish the site
+### Step 1 — turn on GitHub Pages
 
-**GitHub Pages** — repo **Settings → Pages → Deploy from a branch**, pick the branch,
-folder `/ (root)`, **Save**. You get `https://aloymagtoto-cmd.github.io/Digitalaqm/`.
+1. Go to the repo → **Settings** → **Pages** (left sidebar)
+2. **Source:** Deploy from a branch
+3. **Branch:** `claude/modern-portfolio-website-tt0yel`, folder **`/ (root)`** → **Save**
+4. Wait ~1 minute, then check `https://aloymagtoto-cmd.github.io/Digitalaqm/`
 
-**Netlify** (no account fuss) — go to app.netlify.com/drop and drag the project folder onto
-the page. Live instantly on a random subdomain you can rename.
+A `CNAME` file with `digitalaqm.com` is already committed, so Pages will pick up the custom
+domain as soon as it builds.
 
-### Step 2 — point the GoDaddy domain
+### Step 2 — point the domain at it
 
-GoDaddy → **My Products** → domain → **DNS** → **Manage Zones**.
+GoDaddy → **My Products** → `digitalaqm.com` → **DNS**.
 
-For **GitHub Pages**, you need four A records and one CNAME:
+**Re-read the email warning at the top before touching anything.**
 
-| Type | Name | Value |
-| --- | --- | --- |
-| A | @ | 185.199.108.153 |
-| A | @ | 185.199.109.153 |
-| A | @ | 185.199.110.153 |
-| A | @ | 185.199.111.153 |
-| CNAME | www | aloymagtoto-cmd.github.io |
+Delete the existing **A record for `@`** (it points at GoDaddy's parking page) and any
+existing **CNAME for `www`**. Then add these six records:
 
-Confirm those IPs against GitHub's current docs before you type them in — search
+| Type | Name | Value | TTL |
+| --- | --- | --- | --- |
+| A | @ | 185.199.108.153 | 1 hour |
+| A | @ | 185.199.109.153 | 1 hour |
+| A | @ | 185.199.110.153 | 1 hour |
+| A | @ | 185.199.111.153 | 1 hour |
+| CNAME | www | aloymagtoto-cmd.github.io | 1 hour |
+
+Confirm those four IPs against GitHub's current docs before typing them — search
 "GitHub Pages apex domain IP addresses". They change rarely, but they do change.
 
-Then back in **Settings → Pages → Custom domain**, enter your domain and save. Tick
-**Enforce HTTPS** once the certificate finishes (can take an hour).
+Leave every **MX** and **TXT** record exactly as it is.
 
-For **Netlify**, skip the A records — Netlify's dashboard gives you the exact DNS values
-under **Domain settings → Add custom domain**.
+### Step 3 — finish in GitHub
 
-DNS changes usually take 15–60 minutes, occasionally up to 48 hours.
+Back in **Settings → Pages → Custom domain**, enter `digitalaqm.com` and save. GitHub will
+verify the DNS (a few minutes to an hour), then tick **Enforce HTTPS** once the certificate
+is issued.
+
+DNS usually propagates in 15–60 minutes, occasionally up to 48 hours. Until then you may see
+the old parked page — that's cache, not a mistake.
+
+### Alternative: Netlify
+
+Friendlier dashboard, instant HTTPS, drag-and-drop deploys from app.netlify.com/drop.
+If you use it, keep DNS at GoDaddy (**do not** switch to Netlify DNS — that would move your
+email) and use their external-DNS records instead: an A record for `@` pointing at Netlify's
+load balancer, and a CNAME for `www` pointing at your `*.netlify.app` subdomain. Netlify
+shows you the exact values under **Domain settings → Add custom domain**.
 
 ---
 
