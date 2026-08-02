@@ -602,7 +602,13 @@
   <section class="section section--about" id="about">
     <div class="wrap about">
       <div class="about__visual reveal">
-        <div class="about__portrait"><span>AM</span></div>
+        <!-- Drop a photo at assets/img/portrait.jpg and it appears here.
+             Until then — or if the file is missing — the initials show instead. -->
+        <div class="about__portrait">
+          <img src="assets/img/portrait.jpg" alt="Aloysius Magtoto"
+               loading="lazy" onerror="this.remove()" />
+          <span>AM</span>
+        </div>
         <div class="about__chip">
           <b>Aloysius Magtoto</b>
           <span>Registered Marketing Professional</span>

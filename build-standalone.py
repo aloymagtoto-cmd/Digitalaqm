@@ -9,6 +9,7 @@ after editing the source, then upload dist/index.html on its own.
     python3 build-standalone.py
 """
 
+import base64
 import pathlib
 import re
 
@@ -35,6 +36,31 @@ html = re.sub(
     html,
     count=1,
 )
+
+MIME = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+        ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml"}
+
+
+def inline_image(tag: str) -> str:
+    """Embed a local <img> as a data URI, or drop the tag if the file is absent.
+
+    A single-file build has no assets folder next to it, so a left-behind
+    relative src would 404 wherever the file gets uploaded.
+    """
+    src = re.search(r'src="(assets/[^"]+)"', tag)
+    if not src:
+        return tag
+    path = ROOT / src.group(1)
+    if not path.exists():
+        return ""
+    mime = MIME.get(path.suffix.lower())
+    if mime is None:
+        raise SystemExit(f"don't know how to inline {path.name}")
+    data = base64.b64encode(path.read_bytes()).decode("ascii")
+    return tag.replace(src.group(1), f"data:{mime};base64,{data}")
+
+
+html = re.sub(r"<img\b[^>]*>", lambda m: inline_image(m.group(0)), html)
 
 leftovers = re.findall(r'(?:src|href)="assets/[^"]*"', html)
 if leftovers:
