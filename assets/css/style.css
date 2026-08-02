@@ -767,6 +767,7 @@ ul, ol { list-style: none; }
 }
 
 .form__note { font-size: .87rem; color: var(--ink-3); min-height: 1.2em; text-align: center; }
+.form__note a { text-decoration: underline; text-underline-offset: 3px; }
 .form button[type="submit"]:disabled { opacity: .65; cursor: wait; }
 .form__note.ok { color: var(--accent); }
 [data-theme="light"] .form__note.ok { color: var(--accent-2); }

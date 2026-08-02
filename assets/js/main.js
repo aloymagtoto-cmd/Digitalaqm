@@ -255,7 +255,10 @@
     return ok;
   };
 
-  // No endpoint configured — hand off to the mail client so nothing is lost.
+  // No endpoint configured — hand off to the mail client. Plenty of people
+  // have no mail app registered, in which case the mailto: silently does
+  // nothing, so always leave a visible link too. The form is deliberately NOT
+  // reset here: nothing has actually been sent yet.
   const handOffToMailApp = (data) => {
     const body = [
       `Name: ${data.get('name')}`,
@@ -266,12 +269,21 @@
       data.get('message')
     ].join('\n');
 
-    window.location.href =
+    const href =
       `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('New project enquiry — ' + data.get('name'))}` +
       `&body=${encodeURIComponent(body)}`;
 
-    setNote("Opening your mail app — hit send and I'll reply within two working days.", 'ok');
-    form.reset();
+    window.location.href = href;
+
+    // Built as nodes rather than innerHTML so the visitor's own text can never
+    // be interpreted as markup.
+    note.textContent = 'Opening your mail app. Nothing happened? ';
+    note.className = 'form__note ok';
+
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = 'Send it from here instead';
+    note.append(link, ` — or email ${CONTACT_EMAIL} directly.`);
   };
 
   form.addEventListener('submit', async (e) => {
