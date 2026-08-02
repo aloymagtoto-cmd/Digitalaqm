@@ -785,6 +785,24 @@ ul, ol { list-style: none; }
 
 .form__note { font-size: .87rem; color: var(--ink-3); min-height: 1.2em; text-align: center; }
 .form__note a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* the routes offered when no form service is wired up (or one fails) */
+.form__routes {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  justify-content: center; margin-top: .8rem;
+}
+.route {
+  font-family: var(--font-display); font-size: .85rem; font-weight: 600;
+  padding: .5rem 1rem; border-radius: 999px;
+  border: 1px solid var(--line-strong); color: var(--ink);
+  text-decoration: none; cursor: pointer;
+  transition: background .3s var(--ease), border-color .3s, transform .3s var(--ease);
+}
+/* beats the `.form__note a` underline above on specificity */
+.form__note .route { text-decoration: none; }
+.route:hover { background: var(--surface-2); border-color: var(--ink-3); transform: translateY(-2px); }
+.route--go { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.route--go:hover { background: var(--accent); filter: brightness(1.08); }
 .form button[type="submit"]:disabled { opacity: .65; cursor: wait; }
 .form__note.ok { color: var(--accent); }
 [data-theme="light"] .form__note.ok { color: var(--accent-2); }
@@ -1841,18 +1859,24 @@ ul, ol { list-style: none; }
   /* ── contact form ─────────────────────────────────────── */
 
   // ┌─────────────────────────────────────────────────────────────────┐
-  // │  PASTE YOUR FORM ENDPOINT BETWEEN THE QUOTES BELOW.             │
+  // │  FILL IN *ONE* OF THESE TWO AND SUBMISSIONS REACH YOUR INBOX.   │
   // │                                                                 │
-  // │  Sign up at formspree.io, create a form, copy the URL it gives  │
-  // │  you. It looks like:  https://formspree.io/f/abcdwxyz           │
+  // │  WEB3FORMS_KEY — easiest. Put your email into the box at        │
+  // │    web3forms.com, they email you an access key. No account,     │
+  // │    no password. Paste the key between the quotes.               │
   // │                                                                 │
-  // │  Leave it empty and the form falls back to opening the          │
-  // │  visitor's mail app instead — nothing breaks either way.        │
+  // │  FORM_ENDPOINT — formspree.io, if you prefer it. Sign up,       │
+  // │    create a form, paste the URL: https://formspree.io/f/xxxx    │
+  // │                                                                 │
+  // │  With both empty the form still works: it offers WhatsApp,      │
+  // │  email, and copy-to-clipboard instead.                          │
   // └─────────────────────────────────────────────────────────────────┘
+  const WEB3FORMS_KEY = '';
   const FORM_ENDPOINT = '';
 
-  // Change this in one place and both the form and the page pick it up.
-  const CONTACT_EMAIL = 'aloymagtoto@gmail.com';
+  // Change these in one place and the whole form picks them up.
+  const CONTACT_EMAIL   = 'aloymagtoto@gmail.com';
+  const WHATSAPP_NUMBER = '639171737602';   // international format, no + or spaces
 
   const form = $('#contactForm');
   const note = $('#formNote');
@@ -1875,35 +1899,61 @@ ul, ol { list-style: none; }
     return ok;
   };
 
-  // No endpoint configured — hand off to the mail client. Plenty of people
-  // have no mail app registered, in which case the mailto: silently does
-  // nothing, so always leave a visible link too. The form is deliberately NOT
-  // reset here: nothing has actually been sent yet.
-  const handOffToMailApp = (data) => {
-    const body = [
-      `Name: ${data.get('name')}`,
-      `Email: ${data.get('email')}`,
-      `Company: ${data.get('company') || '—'}`,
-      `Scope: ${data.get('scope')}`,
-      '',
-      data.get('message')
-    ].join('\n');
+  const summarise = (data) => [
+    `Name: ${data.get('name')}`,
+    `Email: ${data.get('email')}`,
+    `Company: ${data.get('company') || '—'}`,
+    `Scope: ${data.get('scope')}`,
+    '',
+    data.get('message')
+  ].join('\n');
 
-    const href =
+  // Nothing configured to receive submissions. Never auto-navigate to a
+  // mailto: here — on any machine without a mail app registered that does
+  // nothing at all, silently, and the enquiry is lost. Offer routes the
+  // visitor can see and choose instead, and keep the form filled in.
+  const offerFallbacks = (data) => {
+    const summary = summarise(data);
+
+    note.textContent = '';
+    note.className = 'form__note';
+
+    const lead = document.createElement('span');
+    lead.textContent = 'Almost there — send it through:';
+
+    const row = document.createElement('div');
+    row.className = 'form__routes';
+
+    const whatsapp = document.createElement('a');
+    whatsapp.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(summary)}`;
+    whatsapp.target = '_blank';
+    whatsapp.rel = 'noopener';
+    whatsapp.className = 'route route--go';
+    whatsapp.textContent = 'WhatsApp';
+
+    const mail = document.createElement('a');
+    mail.href =
       `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('New project enquiry — ' + data.get('name'))}` +
-      `&body=${encodeURIComponent(body)}`;
+      `&body=${encodeURIComponent(summary)}`;
+    mail.className = 'route';
+    mail.textContent = 'Email';
 
-    window.location.href = href;
+    const copy = document.createElement('button');
+    copy.type = 'button';
+    copy.className = 'route';
+    copy.textContent = 'Copy message';
+    copy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(`${summary}\n\nSend to: ${CONTACT_EMAIL}`);
+        copy.textContent = 'Copied ✓';
+      } catch {
+        copy.textContent = 'Press Ctrl/Cmd + C';
+      }
+      setTimeout(() => { copy.textContent = 'Copy message'; }, 2200);
+    });
 
-    // Built as nodes rather than innerHTML so the visitor's own text can never
-    // be interpreted as markup.
-    note.textContent = 'Opening your mail app. Nothing happened? ';
-    note.className = 'form__note ok';
-
-    const link = document.createElement('a');
-    link.href = href;
-    link.textContent = 'Send it from here instead';
-    note.append(link, ` — or email ${CONTACT_EMAIL} directly.`);
+    row.append(whatsapp, mail, copy);
+    note.append(lead, row);
   };
 
   form.addEventListener('submit', async (e) => {
@@ -1919,24 +1969,29 @@ ul, ol { list-style: none; }
     // collapse the checkbox group into one readable line
     data.set('scope', data.getAll('scope').join(', ') || 'Not specified');
 
-    if (!FORM_ENDPOINT) { handOffToMailApp(data); return; }
+    if (!WEB3FORMS_KEY && !FORM_ENDPOINT) { offerFallbacks(data); return; }
+
+    if (WEB3FORMS_KEY) data.set('access_key', WEB3FORMS_KEY);
 
     const label = submitBtn.innerHTML;
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
 
     try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        body: data,
-        headers: { Accept: 'application/json' }
-      });
+      const res = await fetch(
+        WEB3FORMS_KEY ? 'https://api.web3forms.com/submit' : FORM_ENDPOINT,
+        { method: 'POST', body: data, headers: { Accept: 'application/json' } }
+      );
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
       form.reset();
       setNote("Got it — I'll reply within two working days.", 'ok');
     } catch {
-      setNote(`That didn't send. Email ${CONTACT_EMAIL} directly and I'll pick it up.`, 'err');
+      // Don't reset: the enquiry hasn't landed, so let them use another route.
+      offerFallbacks(data);
+      note.prepend(Object.assign(document.createElement('span'), {
+        textContent: "That didn't send. "
+      }));
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = label;

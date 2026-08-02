@@ -768,6 +768,24 @@ ul, ol { list-style: none; }
 
 .form__note { font-size: .87rem; color: var(--ink-3); min-height: 1.2em; text-align: center; }
 .form__note a { text-decoration: underline; text-underline-offset: 3px; }
+
+/* the routes offered when no form service is wired up (or one fails) */
+.form__routes {
+  display: flex; flex-wrap: wrap; gap: .5rem;
+  justify-content: center; margin-top: .8rem;
+}
+.route {
+  font-family: var(--font-display); font-size: .85rem; font-weight: 600;
+  padding: .5rem 1rem; border-radius: 999px;
+  border: 1px solid var(--line-strong); color: var(--ink);
+  text-decoration: none; cursor: pointer;
+  transition: background .3s var(--ease), border-color .3s, transform .3s var(--ease);
+}
+/* beats the `.form__note a` underline above on specificity */
+.form__note .route { text-decoration: none; }
+.route:hover { background: var(--surface-2); border-color: var(--ink-3); transform: translateY(-2px); }
+.route--go { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.route--go:hover { background: var(--accent); filter: brightness(1.08); }
 .form button[type="submit"]:disabled { opacity: .65; cursor: wait; }
 .form__note.ok { color: var(--accent); }
 [data-theme="light"] .form__note.ok { color: var(--accent-2); }
