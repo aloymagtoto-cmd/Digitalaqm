@@ -749,7 +749,14 @@ ul, ol { list-style: none; }
 }
 .pills input:focus-visible + span { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 
+/* spam trap — off-screen rather than display:none, which some bots skip */
+.honeypot {
+  position: absolute; left: -9999px; top: auto;
+  width: 1px; height: 1px; opacity: 0; pointer-events: none;
+}
+
 .form__note { font-size: .87rem; color: var(--ink-3); min-height: 1.2em; text-align: center; }
+.form button[type="submit"]:disabled { opacity: .65; cursor: wait; }
 .form__note.ok { color: var(--accent); }
 [data-theme="light"] .form__note.ok { color: var(--accent-2); }
 .form__note.err { color: var(--accent-3); }

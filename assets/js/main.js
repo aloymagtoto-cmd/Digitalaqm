@@ -219,47 +219,96 @@
   }
 
   /* ── contact form ─────────────────────────────────────── */
+
+  // ┌─────────────────────────────────────────────────────────────────┐
+  // │  PASTE YOUR FORM ENDPOINT BETWEEN THE QUOTES BELOW.             │
+  // │                                                                 │
+  // │  Sign up at formspree.io, create a form, copy the URL it gives  │
+  // │  you. It looks like:  https://formspree.io/f/abcdwxyz           │
+  // │                                                                 │
+  // │  Leave it empty and the form falls back to opening the          │
+  // │  visitor's mail app instead — nothing breaks either way.        │
+  // └─────────────────────────────────────────────────────────────────┘
+  const FORM_ENDPOINT = '';
+
+  // Change this in one place and both the form and the page pick it up.
+  const CONTACT_EMAIL = 'aloymagtoto@gmail.com';
+
   const form = $('#contactForm');
   const note = $('#formNote');
+  const submitBtn = $('button[type="submit"]', form);
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    note.className = 'form__note';
+  const setNote = (msg, kind) => {
+    note.textContent = msg;
+    note.className = 'form__note' + (kind ? ' ' + kind : '');
+  };
 
-    let valid = true;
+  const isValid = () => {
+    let ok = true;
     $$('.field', form).forEach(f => {
       const input = $('input[required], textarea[required]', f);
       if (!input) return;
-      const ok = input.checkValidity() && input.value.trim() !== '';
-      f.classList.toggle('invalid', !ok);
-      if (!ok) valid = false;
+      const good = input.checkValidity() && input.value.trim() !== '';
+      f.classList.toggle('invalid', !good);
+      if (!good) ok = false;
     });
+    return ok;
+  };
 
-    if (!valid) {
-      note.textContent = 'A couple of fields still need you.';
-      note.classList.add('err');
-      return;
-    }
-
-    // No backend wired up yet — hand off to the mail client so nothing is lost.
-    const data  = new FormData(form);
-    const scope = data.getAll('scope').join(', ') || 'Not specified';
-    const body  = [
+  // No endpoint configured — hand off to the mail client so nothing is lost.
+  const handOffToMailApp = (data) => {
+    const body = [
       `Name: ${data.get('name')}`,
       `Email: ${data.get('email')}`,
       `Company: ${data.get('company') || '—'}`,
-      `Scope: ${scope}`,
+      `Scope: ${data.get('scope')}`,
       '',
       data.get('message')
     ].join('\n');
 
     window.location.href =
-      `mailto:aloymagtoto@gmail.com?subject=${encodeURIComponent('New project enquiry — ' + data.get('name'))}` +
+      `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent('New project enquiry — ' + data.get('name'))}` +
       `&body=${encodeURIComponent(body)}`;
 
-    note.textContent = 'Opening your mail app — hit send and I\'ll reply within two working days.';
-    note.classList.add('ok');
+    setNote("Opening your mail app — hit send and I'll reply within two working days.", 'ok');
     form.reset();
+  };
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    setNote('');
+
+    if (!isValid()) {
+      setNote('A couple of fields still need you.', 'err');
+      return;
+    }
+
+    const data = new FormData(form);
+    // collapse the checkbox group into one readable line
+    data.set('scope', data.getAll('scope').join(', ') || 'Not specified');
+
+    if (!FORM_ENDPOINT) { handOffToMailApp(data); return; }
+
+    const label = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      form.reset();
+      setNote("Got it — I'll reply within two working days.", 'ok');
+    } catch {
+      setNote(`That didn't send. Email ${CONTACT_EMAIL} directly and I'll pick it up.`, 'err');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = label;
+    }
   });
 
   /* ── misc ─────────────────────────────────────────────── */

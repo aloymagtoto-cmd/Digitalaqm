@@ -664,6 +664,11 @@
       </div>
 
       <form class="form reveal" id="contactForm" novalidate>
+        <!-- Bots fill hidden fields in; people never see this one. Formspree
+             discards any submission where _gotcha has a value. -->
+        <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="_subject" value="New enquiry from digitalaqm.com" />
+
         <div class="field">
           <input type="text" id="name" name="name" placeholder=" " required />
           <label for="name">Your name</label>
