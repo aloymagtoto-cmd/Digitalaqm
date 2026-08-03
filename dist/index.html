@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Aloysius Magtoto — Digital Marketing &amp; Media Buying</title>
-<meta name="description" content="Registered Marketing Professional with 9+ years in full-funnel paid media. Google Ads, Meta, Apple Search Ads, TikTok, and marketplace PPC across US healthcare, iOS apps, retail, and automotive." />
+<title>Freelance Media Buyer &amp; Google Ads Specialist | Aloysius Magtoto</title>
+<meta name="description" content="Freelance media buyer and Google Ads specialist. Meta, Apple Search Ads and marketplace PPC — $117K+ managed, 9.08× peak ROAS. Philippines, US hours." />
 <meta name="theme-color" content="#0a0a0b" />
 
 <link rel="canonical" href="https://digitalaqm.com/" />
 
 <!-- Link preview card. Crawlers (LinkedIn, WhatsApp, Messenger, Slack, iMessage)
      do not resolve relative paths, so every URL here must be absolute. -->
-<meta property="og:title" content="Aloysius Magtoto — Digital Marketing &amp; Media Buying" />
-<meta property="og:description" content="Full-funnel media buying built on real conversion signal. $117K+ Google Ads managed, 9.08× peak ROAS, 2,400+ leads driven." />
+<meta property="og:title" content="Freelance Media Buyer &amp; Google Ads Specialist — Aloysius Magtoto" />
+<meta property="og:description" content="Freelance media buyer and paid media consultant. 9+ years on Google Ads, Meta and Apple Search Ads — $117K+ managed, 9.08× peak ROAS, 2,400+ leads driven." />
 <meta property="og:type" content="profile" />
 <meta property="og:url" content="https://digitalaqm.com/" />
 <meta property="og:site_name" content="Aloysius Magtoto" />
@@ -25,8 +25,8 @@
 <meta property="og:image:alt" content="Aloysius Magtoto — media buying that moves the number. $117K+ Google Ads managed, 9.08× peak ROAS, 2,400+ leads driven." />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Aloysius Magtoto — Digital Marketing &amp; Media Buying" />
-<meta name="twitter:description" content="Full-funnel media buying built on real conversion signal. $117K+ Google Ads managed, 9.08× peak ROAS, 2,400+ leads driven." />
+<meta name="twitter:title" content="Freelance Media Buyer &amp; Google Ads Specialist — Aloysius Magtoto" />
+<meta name="twitter:description" content="Freelance media buyer and paid media consultant. 9+ years on Google Ads, Meta and Apple Search Ads — $117K+ managed, 9.08× peak ROAS, 2,400+ leads driven." />
 <meta name="twitter:image" content="https://digitalaqm.com/assets/img/og-cover.jpg" />
 <meta name="twitter:image:alt" content="Aloysius Magtoto — media buying that moves the number." />
 
@@ -153,11 +153,24 @@ ul, ol { list-style: none; }
 .loader__bar i { display: block; height: 100%; width: 0; background: var(--accent); }
 
 /* ── ambient ─────────────────────────────────────────────── */
+/* Decorative fixed layers are clipped to the viewport on purpose: a fixed
+   element that sticks out past the right edge still enlarges the document's
+   scrollable area in Chrome, which lets the whole page swipe sideways. The
+   animated layer lives on a child so it can overshoot inside the clip. */
 .grain {
-  position: fixed; inset: -50%; z-index: 200; pointer-events: none;
+  position: fixed; inset: 0; z-index: 200; pointer-events: none;
+  overflow: hidden;
+}
+.grain::after {
+  content: ''; position: absolute; inset: -50%;
   opacity: .16; mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain 6s steps(6) infinite;
+}
+
+.ambient {
+  position: fixed; inset: 0; z-index: -1;
+  overflow: hidden; pointer-events: none;
 }
 @keyframes grain {
   0%,100% { transform: translate(0,0); }
@@ -168,7 +181,7 @@ ul, ol { list-style: none; }
 }
 
 .orb {
-  position: fixed; z-index: -1; border-radius: 50%;
+  position: absolute; border-radius: 50%;
   filter: blur(90px); opacity: .35; pointer-events: none;
   transition: transform .8s var(--ease);
 }
@@ -182,7 +195,7 @@ ul, ol { list-style: none; }
   opacity: .22;
 }
 [data-theme="light"] .orb { opacity: .30; }
-[data-theme="light"] .grain { mix-blend-mode: multiply; opacity: .09; }
+[data-theme="light"] .grain::after { mix-blend-mode: multiply; opacity: .09; }
 
 /* ── cursor ──────────────────────────────────────────────── */
 .cursor {
@@ -401,6 +414,20 @@ ul, ol { list-style: none; }
   margin-top: clamp(3rem, 7vw, 5.5rem);
   padding-top: 1.9rem; border-top: 1px solid var(--line);
 }
+.hero__reassure {
+  flex-basis: 100%;
+  font-size: .88rem; color: var(--ink-3); margin-top: .3rem;
+}
+.hero__clients {
+  margin-top: 1.6rem;
+  font-size: .86rem; color: var(--ink-3); line-height: 1.7;
+}
+.hero__clients span {
+  display: block;
+  font-size: .72rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-3); opacity: .75; margin-bottom: .35rem;
+}
+
 .stat b {
   display: block; font-family: var(--font-display);
   font-size: clamp(1.7rem, 3.6vw, 2.9rem); font-weight: 600;
@@ -709,6 +736,31 @@ ul, ol { list-style: none; }
 }
 .chips li:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-2px); }
 
+/* ── faq ─────────────────────────────────────────────────── */
+.faq-wrap { max-width: 900px; }
+.faq { border-top: 1px solid var(--line); }
+.qa { border-bottom: 1px solid var(--line); }
+.qa summary {
+  list-style: none; cursor: pointer;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+  padding: 1.35rem .25rem;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem); letter-spacing: -.02em;
+  transition: color .3s var(--ease);
+}
+.qa summary::-webkit-details-marker { display: none; }
+.qa summary::after {
+  content: '+'; flex: none;
+  font-size: 1.4rem; line-height: 1; color: var(--ink-3);
+  transition: transform .4s var(--ease), color .3s;
+}
+.qa[open] summary::after { transform: rotate(45deg); color: var(--accent); }
+.qa summary:hover { color: var(--accent); }
+[data-theme="light"] .qa summary:hover,
+[data-theme="light"] .qa[open] summary::after { color: var(--accent-2); }
+.qa__body { padding: 0 .25rem 1.5rem; }
+.qa__body p { color: var(--ink-2); font-size: .99rem; max-width: 68ch; }
+
 /* ── cta / form ──────────────────────────────────────────── */
 .section--cta { background: var(--bg-2); }
 .cta {
@@ -721,6 +773,17 @@ ul, ol { list-style: none; }
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 600; line-height: .98; letter-spacing: -.05em; margin-top: .9rem;
 }
+.cta__assure { margin-top: 1.6rem; display: grid; gap: .55rem; }
+.cta__assure li {
+  position: relative; padding-left: 1.5rem;
+  font-size: .93rem; color: var(--ink-2);
+}
+.cta__assure li::before {
+  content: '✓'; position: absolute; left: 0;
+  color: var(--accent); font-weight: 700;
+}
+[data-theme="light"] .cta__assure li::before { color: var(--accent-2); }
+
 .cta__direct { margin-top: 2.5rem; }
 .cta__mail {
   font-family: var(--font-display);
@@ -783,7 +846,14 @@ ul, ol { list-style: none; }
 }
 .pills { display: flex; flex-wrap: wrap; gap: .5rem; }
 .pills label { cursor: pointer; }
-.pills input { position: absolute; opacity: 0; pointer-events: none; }
+/* Must be size-constrained: these sit inside .field, so `.field input`
+   above hands them width:100%, and absolute positioning then pushes each
+   one a full form-width to the right — enough to make the whole page
+   scroll sideways on mobile. */
+.pills input {
+  position: absolute; opacity: 0; pointer-events: none;
+  width: 1px; height: 1px; margin: 0;
+}
 .pills span {
   display: inline-block;
   padding: .5rem .95rem; border-radius: 999px;
@@ -843,8 +913,11 @@ ul, ol { list-style: none; }
 
 .footer__mark {
   font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(1.9rem, 12.2vw, 11rem); line-height: .95; letter-spacing: -.055em;
-  white-space: nowrap;                    /* one line, always — descenders included */
+  /* sized to fit on one line even in the fallback face, which is wider than
+     Space Grotesk; overflow:hidden is the belt-and-braces so a nowrap
+     wordmark can never widen the document and let the page swipe sideways */
+  font-size: clamp(1.6rem, 9.6vw, 8.4rem); line-height: .95; letter-spacing: -.055em;
+  white-space: nowrap; overflow: hidden;
   text-align: center; margin-block: clamp(2.5rem, 7vw, 4.5rem) 2rem;
   color: transparent; -webkit-text-stroke: 1px var(--line-strong);
   user-select: none;
@@ -923,6 +996,104 @@ ul, ol { list-style: none; }
 }
 
 </style>
+
+<!-- Structured data: tells Google (and AI answer engines) who this is, what
+     is on offer, and where. The FAQ entries must stay word-for-word identical
+     to the visible copy in #faq — mismatched answers are a manual-action risk. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://digitalaqm.com/#person",
+      "name": "Aloysius Magtoto",
+      "alternateName": "Aloy Magtoto",
+      "url": "https://digitalaqm.com/",
+      "image": "https://digitalaqm.com/assets/img/portrait.jpg",
+      "jobTitle": "Freelance Media Buyer & Paid Media Consultant",
+      "email": "mailto:aloymagtoto@gmail.com",
+      "telephone": "+63-917-173-7602",
+      "hasCredential": "Registered Marketing Professional (RMP)",
+      "address": { "@type": "PostalAddress", "addressCountry": "PH" },
+      "sameAs": ["https://linkedin.com/in/aloymagtoto"],
+      "knowsAbout": [
+        "Google Ads", "Meta Ads", "Apple Search Ads", "TikTok Ads",
+        "Performance marketing", "Media buying", "App Store Optimization",
+        "Google Analytics 4", "Google Tag Manager", "Firebase",
+        "Conversion rate optimization", "Marketplace PPC", "HIPAA compliant marketing"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://digitalaqm.com/#service",
+      "name": "Aloysius Magtoto — Media Buying & Paid Media Consulting",
+      "url": "https://digitalaqm.com/",
+      "image": "https://digitalaqm.com/assets/img/og-cover.jpg",
+      "description": "Freelance media buyer and paid media consultant. Google Ads, Meta, Apple Search Ads, TikTok and marketplace PPC, plus GA4 and conversion tracking architecture.",
+      "founder": { "@id": "https://digitalaqm.com/#person" },
+      "areaServed": ["US", "PH", "Worldwide"],
+      "priceRange": "$$",
+      "address": { "@type": "PostalAddress", "addressCountry": "PH" },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Paid media services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Media buying & PPC management" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GA4 & conversion tracking setup" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "App Store Optimisation & iOS user acquisition" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "CRO, Shopify & landing pages" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "HIPAA & privacy-compliant marketing" } }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://digitalaqm.com/#website",
+      "url": "https://digitalaqm.com/",
+      "name": "Aloysius Magtoto",
+      "publisher": { "@id": "https://digitalaqm.com/#person" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://digitalaqm.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work with clients outside the Philippines?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — most of my recent work is US-based. I'm in the Philippines on GMT+8 and work US hours, so there's overlap with both coasts. My longest-running healthcare account, California Recovery Center, is a US addiction-treatment provider running Google Search, programmatic, and paid social." }
+        },
+        {
+          "@type": "Question",
+          "name": "Which ad platforms do you actually buy on?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Google Ads (Search, App Campaigns, YouTube), Meta Ads including Advantage+ and Collaborative Ads, Apple Search Ads, TikTok Ads, and programmatic through QuantCast and MNTN. On the marketplace side: Shopee, Lazada, TikTok Shop, and Zalora." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you handle regulated industries like healthcare?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. I've run HIPAA-conscious patient acquisition, including CPRA/CPPA tracking compliance, consent management, and web accessibility work. In addiction treatment, clicks run $8–9 and the compliance rules are strict — getting the tracking wrong there isn't a reporting problem, it's a legal one." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it just ad management, or the tracking too?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The tracking comes first. GA4, Google Tag Manager, Firebase events, Meta Pixel and CAPI, offline conversion imports, and call-tracking attribution through CallRail or CallTrackingMetrics. If the account is optimising toward a number that isn't true, better bidding just spends the budget faster." }
+        },
+        {
+          "@type": "Question",
+          "name": "Freelance projects, or a full-time role?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Both. I take on freelance and contract media buying, and I'm open to full-time roles for the right team. Tick \"Full-time role\" on the form and tell me about the position." }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I send the form?",
+          "acceptedAnswer": { "@type": "Answer", "text": "I reply within two working days. If it looks like a fit, we book 20 minutes, you walk me through the account, and I tell you the first two things I'd change — whether or not you hire me. If it isn't a fit, I'll say so and point you somewhere better." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23050506'/><circle cx='50' cy='50' r='22' fill='%23d6ff3f'/></svg>" />
 </head>
 <body>
@@ -938,8 +1109,10 @@ ul, ol { list-style: none; }
 
 <!-- ── ambient layers ─────────────────────────────────────── -->
 <div class="grain" aria-hidden="true"></div>
-<div class="orb orb--a" aria-hidden="true"></div>
-<div class="orb orb--b" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true">
+  <div class="orb orb--a"></div>
+  <div class="orb orb--b"></div>
+</div>
 <div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
 
 <a class="skip" href="#work">Skip to content</a>
@@ -952,10 +1125,10 @@ ul, ol { list-style: none; }
   </a>
 
   <nav class="nav__links" id="navLinks" aria-label="Primary">
-    <a href="#services">What I do</a>
+    <a href="#services">Services</a>
     <a href="#work">Work</a>
     <a href="#experience">Experience</a>
-    <a href="#stack">Stack</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact" class="nav__cta">Get in touch <i>→</i></a>
   </nav>
 
@@ -975,7 +1148,7 @@ ul, ol { list-style: none; }
 
     <div class="wrap hero__inner">
       <p class="eyebrow reveal">
-        <span class="pulse"></span> Aloysius Magtoto — Registered Marketing Professional
+        <span class="pulse"></span> Freelance media buyer &amp; paid media consultant · Philippines, US hours
       </p>
 
       <h1 class="hero__title">
@@ -986,16 +1159,19 @@ ul, ol { list-style: none; }
 
       <div class="hero__meta">
         <p class="hero__lede reveal">
-          Most buyers optimise inside the platform. I work backwards from revenue —
-          auditing the measurement layer, finding where the funnel actually breaks,
-          then buying against the real signal.
+          I run Google Ads, Meta, and Apple Search Ads for founders and marketing leads
+          whose reporting keeps improving while revenue doesn't. Nine years, five
+          platforms, and a measurement layer I fix <em>before</em> I touch a bid.
         </p>
 
         <div class="hero__actions reveal">
-          <a href="#work" class="btn btn--primary magnetic" data-cursor="the numbers">
-            See the work <i>→</i>
+          <a href="#contact" class="btn btn--primary magnetic" data-cursor="free review">
+            Get a free account review <i>→</i>
           </a>
-          <a href="#contact" class="btn btn--ghost magnetic">Get in touch</a>
+          <a href="#work" class="btn btn--ghost magnetic">See the numbers</a>
+          <p class="hero__reassure">
+            20 minutes, no pitch — you'll leave with the first two things I'd change.
+          </p>
         </div>
       </div>
 
@@ -1016,6 +1192,12 @@ ul, ol { list-style: none; }
           <b class="count" data-to="5" data-suffix="">0</b><span>Ad platforms</span>
         </div>
       </div>
+
+      <p class="hero__clients reveal">
+        <span>Trusted with budget by</span>
+        California Recovery Center · Executive Optical · Chapter One ·
+        NXT Gen Garage · MerQado PH · Ubertech
+      </p>
     </div>
 
     <div class="scroll-cue" aria-hidden="true"><span></span> scroll</div>
@@ -1047,32 +1229,33 @@ ul, ol { list-style: none; }
   <section class="section" id="services">
     <div class="wrap">
       <header class="sec-head">
-        <p class="eyebrow reveal">01 — What I do</p>
-        <h2 class="sec-title reveal">Full-funnel, end to end —<br />not just the ad account.</h2>
+        <p class="eyebrow reveal">01 — Services</p>
+        <h2 class="sec-title reveal">Paid media services, end to end —<br />not just the ad account.</h2>
         <p class="sec-sub reveal">
-          Six disciplines that have to work together before spend does anything useful:
-          the buying, the measurement underneath it, and the page it all lands on.
+          I work as a Google Ads specialist and full-funnel media buyer — six disciplines
+          that have to work together before spend does anything useful: the buying, the
+          measurement underneath it, and the page it all lands on.
         </p>
       </header>
 
       <div class="cards">
         <article class="card reveal">
           <span class="card__num">01</span>
-          <h3>Media Buying</h3>
+          <h3>Media Buying &amp; PPC Management</h3>
           <p>Paid acquisition across search, social, programmatic, and marketplace — structured around real conversion signals and unit economics.</p>
           <ul class="tags"><li>Search</li><li>Paid social</li><li>Programmatic</li><li>Marketplace</li></ul>
         </article>
 
         <article class="card reveal">
           <span class="card__num">02</span>
-          <h3>Analytics &amp; Measurement</h3>
+          <h3>GA4 &amp; Conversion Tracking Setup</h3>
           <p>GA4, Firebase, and GTM tracking architecture, conversion imports, and call-tracking attribution that decisions can actually rely on.</p>
           <ul class="tags"><li>GA4</li><li>GTM</li><li>Firebase</li><li>Call tracking</li></ul>
         </article>
 
         <article class="card reveal">
           <span class="card__num">03</span>
-          <h3>App Store Optimisation</h3>
+          <h3>App Store Optimisation &amp; iOS UA</h3>
           <p>Keyword research and title testing across Apple Search Ads and Google data to win organic install visibility.</p>
           <ul class="tags"><li>ASO</li><li>Keyword research</li><li>Title testing</li></ul>
         </article>
@@ -1086,14 +1269,14 @@ ul, ol { list-style: none; }
 
         <article class="card reveal">
           <span class="card__num">05</span>
-          <h3>Conversion &amp; Web</h3>
+          <h3>CRO, Shopify &amp; Landing Pages</h3>
           <p>Shopify Liquid builds, WordPress landing pages, and CRO — fixing where traffic lands, not just how it arrives.</p>
           <ul class="tags"><li>Shopify</li><li>WordPress</li><li>CRO</li></ul>
         </article>
 
         <article class="card card--accent reveal">
           <span class="card__num">06</span>
-          <h3>Privacy &amp; Compliance</h3>
+          <h3>HIPAA &amp; Privacy-Compliant Marketing</h3>
           <p>HIPAA, CPRA/CPPA, consent management, and web accessibility for regulated, audit-ready marketing.</p>
           <ul class="tags"><li>HIPAA</li><li>CPRA/CPPA</li><li>Consent</li><li>Accessibility</li></ul>
         </article>
@@ -1106,7 +1289,7 @@ ul, ol { list-style: none; }
     <div class="wrap">
       <header class="sec-head sec-head--row">
         <div>
-          <p class="eyebrow reveal">02 — Selected work</p>
+          <p class="eyebrow reveal">02 — Case studies · Google Ads, Meta, Apple Search Ads</p>
           <h2 class="sec-title reveal">Where I've driven<br />the number.</h2>
         </div>
         <p class="sec-sub reveal">
@@ -1524,8 +1707,8 @@ ul, ol { list-style: none; }
       </div>
 
       <div class="about__body">
-        <p class="eyebrow reveal">06 — A marketer's perspective</p>
-        <h2 class="sec-title reveal">Full-funnel digital<br />mastery.</h2>
+        <p class="eyebrow reveal">06 — About</p>
+        <h2 class="sec-title reveal">The media buyer<br />you'd be hiring.</h2>
         <p class="sec-sub reveal">
           Nine-plus years buying media across five ad platforms — US healthcare, iOS app
           portfolios, global hardware distribution, Philippine retail and eCommerce. The
@@ -1547,16 +1730,105 @@ ul, ol { list-style: none; }
     </div>
   </section>
 
+  <!-- ── faq ──────────────────────────────────────────────── -->
+  <section class="section" id="faq">
+    <div class="wrap faq-wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">07 — Questions</p>
+        <h2 class="sec-title reveal">The things people<br />ask first.</h2>
+      </header>
+
+      <div class="faq">
+        <details class="qa reveal">
+          <summary>Do you work with clients outside the Philippines?</summary>
+          <div class="qa__body">
+            <p>
+              Yes — most of my recent work is US-based. I'm in the Philippines on GMT+8
+              and work US hours, so there's overlap with both coasts. My longest-running
+              healthcare account, California Recovery Center, is a US addiction-treatment
+              provider running Google Search, programmatic, and paid social.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa reveal">
+          <summary>Which ad platforms do you actually buy on?</summary>
+          <div class="qa__body">
+            <p>
+              Google Ads (Search, App Campaigns, YouTube), Meta Ads including Advantage+
+              and Collaborative Ads, Apple Search Ads, TikTok Ads, and programmatic
+              through QuantCast and MNTN. On the marketplace side: Shopee, Lazada,
+              TikTok Shop, and Zalora.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa reveal">
+          <summary>Can you handle regulated industries like healthcare?</summary>
+          <div class="qa__body">
+            <p>
+              Yes. I've run HIPAA-conscious patient acquisition, including CPRA/CPPA
+              tracking compliance, consent management, and web accessibility work. In
+              addiction treatment, clicks run $8–9 and the compliance rules are strict —
+              getting the tracking wrong there isn't a reporting problem, it's a legal one.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa reveal">
+          <summary>Is it just ad management, or the tracking too?</summary>
+          <div class="qa__body">
+            <p>
+              The tracking comes first. GA4, Google Tag Manager, Firebase events, Meta
+              Pixel and CAPI, offline conversion imports, and call-tracking attribution
+              through CallRail or CallTrackingMetrics. If the account is optimising toward
+              a number that isn't true, better bidding just spends the budget faster.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa reveal">
+          <summary>Freelance projects, or a full-time role?</summary>
+          <div class="qa__body">
+            <p>
+              Both. I take on freelance and contract media buying, and I'm open to
+              full-time roles for the right team. Tick "Full-time role" on the form and
+              tell me about the position.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa reveal">
+          <summary>What happens after I send the form?</summary>
+          <div class="qa__body">
+            <p>
+              I reply within two working days. If it looks like a fit, we book 20 minutes,
+              you walk me through the account, and I tell you the first two things I'd
+              change — whether or not you hire me. If it isn't a fit, I'll say so and
+              point you somewhere better.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ── contact ──────────────────────────────────────────── -->
   <section class="section section--cta" id="contact">
     <div class="wrap cta">
       <div class="cta__copy">
-        <p class="eyebrow reveal">07 — Get in touch</p>
+        <p class="eyebrow reveal">08 — Get in touch</p>
         <h2 class="cta__title reveal">Ready to move<br /><span class="grad">your number?</span></h2>
         <p class="sec-sub reveal">
-          Ready to discuss how we can elevate your marketing strategy together? Send over
-          the account, the vertical, and what's not working — I'll tell you where I'd look first.
+          Send over the account, the vertical, and what's not working. I'll come back
+          within two working days with where I'd look first — free, whether or not you
+          end up hiring me.
         </p>
+        <ul class="cta__assure reveal">
+          <li>Reply within 2 working days</li>
+          <li>No pitch deck, no retainer talk on the first call</li>
+          <li>Not a fit? I'll point you somewhere better</li>
+        </ul>
 
         <div class="cta__direct reveal">
           <a href="mailto:aloymagtoto@gmail.com" class="cta__mail" data-cursor="copy">aloymagtoto@gmail.com</a>
@@ -1632,10 +1904,11 @@ ul, ol { list-style: none; }
       </div>
       <div>
         <p class="footer__label">Menu</p>
-        <a href="#services">What I do</a><br />
+        <a href="#services">Services</a><br />
         <a href="#work">Work</a><br />
         <a href="#experience">Experience</a><br />
         <a href="#stack">Stack</a><br />
+        <a href="#faq">FAQ</a><br />
         <a href="#contact">Contact</a>
       </div>
       <div>
