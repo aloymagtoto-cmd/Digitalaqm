@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GA4 &amp; Conversion Tracking Setup | AQM Digital Marketing</title>
+<meta name="description" content="GA4, Google Tag Manager, Meta CAPI and call-tracking implementation. Fix the measurement layer before spending more on media." />
+<meta name="theme-color" content="#0a0a0b" />
+
+<link rel="canonical" href="https://digitalaqm.com/services/ga4-tracking-setup/" />
+
+<meta property="og:title" content="GA4 &amp; Conversion Tracking Setup | AQM Digital Marketing" />
+<meta property="og:description" content="GA4, Google Tag Manager, Meta CAPI and call-tracking implementation. Fix the measurement layer before spending more on media." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://digitalaqm.com/services/ga4-tracking-setup/" />
+<meta property="og:site_name" content="AQM Digital Marketing" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:image" content="https://digitalaqm.com/assets/img/og-cover.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="GA4 &amp; Conversion Tracking Setup | AQM Digital Marketing" />
+<meta name="twitter:description" content="GA4, Google Tag Manager, Meta CAPI and call-tracking implementation. Fix the measurement layer before spending more on media." />
+<meta name="twitter:image" content="https://digitalaqm.com/assets/img/og-cover.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/style.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://digitalaqm.com/services/ga4-tracking-setup/#service",
+      "name": "GA4 & Conversion Tracking Setup",
+      "serviceType": "Analytics and conversion tracking implementation",
+      "description": "GA4, Google Tag Manager, Meta CAPI and call-tracking implementation. Fix the measurement layer before spending more on media.",
+      "provider": {
+        "@id": "https://digitalaqm.com/#organization"
+      },
+      "areaServed": [
+        "US",
+        "PH",
+        "Worldwide"
+      ],
+      "url": "https://digitalaqm.com/services/ga4-tracking-setup/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://digitalaqm.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://digitalaqm.com/services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GA4 & Conversion Tracking Setup",
+          "item": "https://digitalaqm.com/services/ga4-tracking-setup/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://digitalaqm.com/services/ga4-tracking-setup/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does an implementation take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard site is usually one to two weeks from access to handover. Multi-domain setups, apps with Firebase, or anything with offline conversion imports take longer because validation takes longer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you fix an existing GA4 property or does it need rebuilding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Usually it can be fixed. A rebuild is only worth it when the historical data is already unreliable enough that you wouldn't trust year-on-year comparisons anyway — in which case a clean start costs less than perpetual caveats."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with developers or handle it yourself?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most of it is Tag Manager and doesn't need a developer. For dataLayer pushes on custom checkouts or app SDK work, I write the spec and work alongside your engineers."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23050506'/><circle cx='50' cy='50' r='22' fill='%23d6ff3f'/></svg>" />
+</head>
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <span class="loader__mark">AQM</span>
+    <span class="loader__count" id="loaderCount">0</span>
+  </div>
+  <div class="loader__bar"><i id="loaderBar"></i></div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="ambient" aria-hidden="true">
+  <div class="orb orb--a"></div>
+  <div class="orb orb--b"></div>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><span id="cursorLabel"></span></div>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a href="/" class="nav__logo" data-cursor="home">
+    <span class="nav__dot"></span>
+    <span><b>AQM</b> Digital Marketing</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Primary">
+    <a href="/services/" aria-current="page">Services</a>
+    <a href="/#work">Work</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/about/">About</a>
+    <a href="/#contact" class="nav__cta">Get in touch <i>&rarr;</i></a>
+  </nav>
+
+  <div class="nav__tools">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme">
+      <span class="theme-toggle__thumb"></span>
+    </button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="/">AQM Digital Marketing</a> <span aria-hidden="true">/</span> <a href="/services/">Services</a> <span aria-hidden="true">/</span> <span>GA4 &amp; tracking</span>
+      </nav>
+      <h1 class="page-title">GA4 &amp; conversion<br /><span class="grad">tracking setup.</span></h1>
+      <p class="page-lede">The unglamorous work that decides whether every other marketing decision is based on something real.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="prose reveal">
+        <p>Almost every account I audit is optimising toward a number that isn't true.
+        Conversions firing on page load. Thank-you pages counted on refresh. Phone calls
+        &mdash; often the majority of leads &mdash; invisible to the ad platforms entirely.
+        Purchases in GA4 that don't reconcile with what the payment processor says.</p>
+        <p>None of that is exotic. It is just nobody's job until it is, and the cost
+        compounds quietly: bid strategies trained on bad data spend real money learning
+        the wrong lesson.</p>
+        <p>This engagement fixes the measurement layer end to end and hands you a
+        documented map of what fires, when, and where it lands.</p></div>
+    </div>
+  </section>
+
+  <section class="section section--work">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">01 &mdash; What's included</p>
+        <h2 class="sec-title reveal">What you actually get.</h2>
+      </header>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="card__num">01</span>
+          <h3>GA4 event architecture</h3>
+          <p>An event and parameter model designed around your funnel, not the default recommended list — so reports answer questions you actually have.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">02</span>
+          <h3>Google Tag Manager build</h3>
+          <p>Clean container, versioned changes, no orphaned tags. Triggers documented so the next person can follow them.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">03</span>
+          <h3>Conversion imports</h3>
+          <p>Google Ads and Meta conversions wired to the events that represent real money, including offline uploads when the deal closes by phone or in person.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">04</span>
+          <h3>Meta Pixel &amp; CAPI</h3>
+          <p>Server-side events with deduplication, so post-iOS attribution holds up without inflating your numbers.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">05</span>
+          <h3>Call tracking</h3>
+          <p>CallRail or CallTrackingMetrics with dynamic number insertion, so phone leads get attributed to the campaign that produced them.</p>
+        </article>
+        <article class="card reveal">
+          <span class="card__num">06</span>
+          <h3>Mobile app measurement</h3>
+          <p>Firebase events, SKAdNetwork configuration, and App Store Connect reconciliation for iOS portfolios.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">02 &mdash; Proof</p>
+        <h2 class="sec-title reveal">Numbers from real accounts.</h2>
+        <p class="sec-sub reveal">On a two-app portfolio the media looked broken — installs were cheap, subscriptions weren't coming. Correct funnel measurement showed the drop was at the paywall, not the ads. That fix cost nothing in media spend.</p>
+      </header>
+      <div class="proof reveal">
+          <div><b>$4.9K</b><span>Spend diagnosed</span></div>
+          <div><b>1,843</b><span>Installs tracked</span></div>
+          <div><b>250</b><span>Trials attributed</span></div>
+          <div><b>$5.09</b><span>True cost per trial</span></div>
+          <div><b>2 apps</b><span>Portfolio audited</span></div>
+          <div><b>Paywall</b><span>Actual bottleneck</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--work">
+    <div class="wrap process">
+      <div class="process__sticky">
+        <p class="eyebrow reveal">03 &mdash; How it runs</p>
+        <h2 class="sec-title reveal">The order<br />matters.</h2>
+        <p class="sec-sub reveal">
+          Buying against a broken signal just spends the budget faster, so the
+          measurement work always comes first.
+        </p>
+        <a href="/#contact" class="btn btn--primary magnetic reveal">Get a free account review <i>&rarr;</i></a>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__n">01</span>
+          <div><h3>Inventory what exists</h3><p>Every tag, trigger, and conversion action currently firing, plus what each one actually measures versus what it claims to.</p></div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">02</span>
+          <div><h3>Design the event model</h3><p>Decide what a conversion means in your business before deciding how to track it. This is the step most implementations skip.</p></div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">03</span>
+          <div><h3>Build and validate</h3><p>Implement in GTM, then test every path in preview mode and DebugView — including the ones that only fire on mobile.</p></div>
+        </li>
+        <li class="step reveal">
+          <span class="step__n">04</span>
+          <div><h3>Reconcile and document</h3><p>Match platform numbers against your source of truth, then hand over a written map of the whole setup.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap faq-wrap">
+      <header class="sec-head">
+        <p class="eyebrow reveal">04 &mdash; Questions</p>
+        <h2 class="sec-title reveal">Before you ask.</h2>
+      </header>
+      <div class="faq">
+        <details class="qa reveal">
+          <summary>How long does an implementation take?</summary>
+          <div class="qa__body"><p>A standard site is usually one to two weeks from access to handover. Multi-domain setups, apps with Firebase, or anything with offline conversion imports take longer because validation takes longer.</p></div>
+        </details>
+        <details class="qa reveal">
+          <summary>Can you fix an existing GA4 property or does it need rebuilding?</summary>
+          <div class="qa__body"><p>Usually it can be fixed. A rebuild is only worth it when the historical data is already unreliable enough that you wouldn't trust year-on-year comparisons anyway — in which case a clean start costs less than perpetual caveats.</p></div>
+        </details>
+        <details class="qa reveal">
+          <summary>Do you work with developers or handle it yourself?</summary>
+          <div class="qa__body"><p>Most of it is Tag Manager and doesn't need a developer. For dataLayer pushes on custom checkouts or app SDK work, I write the spec and work alongside your engineers.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cta">
+    <div class="wrap">
+      <header class="sec-head" style="margin-bottom:0">
+        <h2 class="sec-title reveal">Want this pointed<br /><span class="grad">at your account?</span></h2>
+        <p class="sec-sub reveal">
+          Send over the account, the vertical, and what's not working. You'll get a reply
+          within two working days and the first two things I'd change &mdash; free, whether
+          or not you hire AQM.
+        </p>
+        <p style="margin-top:2rem">
+          <a href="/#contact" class="btn btn--primary magnetic">Get a free account review <i>&rarr;</i></a>
+        </p>
+      </header>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <p class="footer__label">Based in</p>
+        <p>Philippines &middot; GMT+8<br />Working US hours</p>
+      </div>
+      <div>
+        <p class="footer__label">Services</p>
+        <a href="/services/google-ads-management/">Google Ads</a><br />
+        <a href="/services/meta-ads/">Meta Ads</a><br />
+        <a href="/services/ga4-tracking-setup/">GA4 &amp; tracking</a><br />
+        <a href="/services/app-store-optimization/">ASO &amp; iOS UA</a><br />
+        <a href="/services/hipaa-compliant-marketing/">HIPAA marketing</a>
+      </div>
+      <div>
+        <p class="footer__label">Company</p>
+        <a href="/about/">About</a><br />
+        <a href="/#work">Work</a><br />
+        <a href="/#faq">FAQ</a><br />
+        <a href="/#contact">Contact</a><br />
+        <a href="/privacy/">Privacy</a>
+      </div>
+      <div>
+        <p class="footer__label">Elsewhere</p>
+        <a href="https://linkedin.com/in/aloymagtoto" target="_blank" rel="noopener">LinkedIn</a><br />
+        <a href="mailto:aloymagtoto@gmail.com">Email</a><br />
+        <a href="tel:+639171737602">0917 173 7602</a>
+      </div>
+    </div>
+
+    <div class="footer__mark" aria-hidden="true">AQM DIGITAL</div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="year">2026</span> AQM Digital Marketing &middot; Aloysius Magtoto, RMP</p>
+      <a href="#top" class="footer__up magnetic">Back to top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
