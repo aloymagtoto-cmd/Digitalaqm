@@ -44,8 +44,10 @@
   --line:        rgba(10, 10, 11, .12);
   --line-strong: rgba(10, 10, 11, .24);
   --ink:         #101012;
-  --ink-2:       rgba(16, 16, 18, .66);
-  --ink-3:       rgba(16, 16, 18, .42);
+  /* darker than the dark-theme equivalents: the same alpha over a light
+     ground gives far less contrast, and these now carry the default view */
+  --ink-2:       rgba(16, 16, 18, .76);
+  --ink-3:       rgba(16, 16, 18, .61);
   --on-accent:   #f7f7f5;
 }
 

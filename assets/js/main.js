@@ -42,14 +42,15 @@
   /* ── theme ────────────────────────────────────────────── */
   const root   = document.documentElement;
   const toggle = $('#themeToggle');
-  const stored = localStorage.getItem('aqm-theme');
-  if (stored) root.dataset.theme = stored;
+  // The inline script in <head> has already applied any stored choice before
+  // first paint; this only has to keep the toggle and the meta colour in sync.
+  const THEME_COLOR = { dark: '#0a0a0b', light: '#f2f1ee' };
 
   toggle.addEventListener('click', () => {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
     localStorage.setItem('aqm-theme', next);
-    $('meta[name="theme-color"]').setAttribute('content', next === 'dark' ? '#0a0a0b' : '#f2f1ee');
+    $('meta[name="theme-color"]').setAttribute('content', THEME_COLOR[next]);
   });
 
   /* ── mobile menu ──────────────────────────────────────── */
