@@ -77,7 +77,7 @@
     const y = window.scrollY;
     nav.classList.toggle('stuck', y > 30);
     nav.classList.toggle('hide', y > 480 && y > lastY && !menuOpen);
-    cue.classList.toggle('gone', y > 60);
+    if (cue) cue.classList.toggle('gone', y > 60);
     lastY = y;
   }, { passive: true });
 
@@ -241,8 +241,8 @@
   const WHATSAPP_NUMBER = '639171737602';   // international format, no + or spaces
 
   const form = $('#contactForm');
-  const note = $('#formNote');
-  const submitBtn = $('button[type="submit"]', form);
+  const note = form && $('#formNote');
+  const submitBtn = form && $('button[type="submit"]', form);
 
   const setNote = (msg, kind) => {
     note.textContent = msg;
@@ -318,7 +318,7 @@
     note.append(lead, row);
   };
 
-  form.addEventListener('submit', async (e) => {
+  if (form) form.addEventListener('submit', async (e) => {
     e.preventDefault();
     setNote('');
 
@@ -361,5 +361,6 @@
   });
 
   /* ── misc ─────────────────────────────────────────────── */
-  $('#year').textContent = new Date().getFullYear();
+  const year = $('#year');
+  if (year) year.textContent = new Date().getFullYear();
 })();
