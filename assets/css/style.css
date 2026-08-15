@@ -460,6 +460,11 @@ ul, ol { list-style: none; }
   display: grid; gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
+/* With a card count that leaves one stranded on the final row of a three-up
+   grid, let it run the full width so the row reads as deliberate. */
+@media (min-width: 940px) {
+  .cards > :last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+}
 .card {
   position: relative; isolation: isolate;
   padding: clamp(1.5rem, 2.6vw, 2.1rem);

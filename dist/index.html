@@ -496,6 +496,11 @@ ul, ol { list-style: none; }
   display: grid; gap: var(--gap);
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
 }
+/* With a card count that leaves one stranded on the final row of a three-up
+   grid, let it run the full width so the row reads as deliberate. */
+@media (min-width: 940px) {
+  .cards > :last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
+}
 .card {
   position: relative; isolation: isolate;
   padding: clamp(1.5rem, 2.6vw, 2.1rem);
@@ -1114,6 +1119,13 @@ a.card:hover .card__go { transform: translateX(4px); }
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "name": "Social media management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
               "name": "CRO, Shopify & landing pages"
             }
           },
@@ -1153,7 +1165,8 @@ a.card:hover .card__go { transform: translateX(4px); }
         "Firebase",
         "Conversion rate optimization",
         "Marketplace PPC",
-        "HIPAA compliant marketing"
+        "HIPAA compliant marketing",
+        "Social media management"
       ]
     },
     {
@@ -1399,10 +1412,10 @@ a.card:hover .card__go { transform: translateX(4px); }
     <div class="wrap">
       <header class="sec-head">
         <p class="eyebrow reveal">01 — Services</p>
-        <h2 class="sec-title reveal">Paid media services, end to end —<br />not just the ad account.</h2>
+        <h2 class="sec-title reveal">Paid media services&nbsp;—<br />not just the ad account.</h2>
         <p class="sec-sub reveal">
           AQM is a full-funnel shop — Google Ads specialist work, paid social, and
-          marketplace PPC. Six disciplines that have to work together before spend does
+          marketplace PPC. Seven disciplines that have to work together before spend does
           anything useful: the buying, the measurement underneath it, and the page it
           all lands on.
         </p>
@@ -1447,8 +1460,15 @@ a.card:hover .card__go { transform: translateX(4px); }
           <ul class="tags"><li>Shopify</li><li>WordPress</li><li>CRO</li></ul>
         </article>
 
-        <article class="card card--accent reveal">
+        <article class="card reveal">
           <span class="card__num">06</span>
+          <h3>Social Media Management</h3>
+          <p>Content pillars, community and DM handling, and social commerce — organic that feeds the ad account instead of running beside it.</p>
+          <ul class="tags"><li>Content</li><li>Community</li><li>TikTok Shop</li><li>Messenger</li></ul>
+          <a class="card__go" href="/services/social-media-management/">Read more &rarr;</a>
+        </article>
+        <article class="card card--accent reveal">
+          <span class="card__num">07</span>
           <h3>HIPAA &amp; Privacy-Compliant Marketing</h3>
           <p>HIPAA, CPRA/CPPA, consent management, and web accessibility for regulated, audit-ready marketing.</p>
           <ul class="tags"><li>HIPAA</li><li>CPRA/CPPA</li><li>Consent</li><li>Accessibility</li></ul>
