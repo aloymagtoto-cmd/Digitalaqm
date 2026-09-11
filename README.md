@@ -29,9 +29,9 @@ python3 -m http.server 8000   # → http://localhost:8000
 | Experience | Six roles — California Recovery Center, Executive Optical, Ubertech, NXT Gen Garage, Chapter One, MerQado PH |
 | Stack | Six tool groups, from ad platforms to commerce and creative |
 | About | Positioning and skill chips |
-| Contact | Email, phone/WhatsApp/Viber, LinkedIn, plus a form |
+| Contact | Email, phone/WhatsApp/Viber, plus a form |
 
-All copy and every metric come from the source portfolio deck. The two headline case studies
+All copy and every metric come from the source deck. The two headline case studies
 (California Recovery Center, NXT Gen Garage) span the full grid width; the rest sit in a
 two-column layout that collapses to one under 900px.
 
