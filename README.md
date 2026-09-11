@@ -1,6 +1,6 @@
-# Aloysius Magtoto — portfolio site
+# AQM Digital Marketing — site
 
-A single-page portfolio for a Registered Marketing Professional: full-funnel media buying,
+A single-page site for an independent paid-media practice: full-funnel media buying,
 measurement, and conversion work. Dark by default, light theme included, no build step, no
 dependencies.
 
@@ -55,12 +55,12 @@ layout holds down to 390px.
   (six metrics) and a `.work__notes` list. Add `work__item--wide` to make one span both columns.
 - **Thumbnails** — currently CSS gradients (`.work__thumb--1` … `--7`). Swap in real campaign
   screenshots or dashboard captures when you have shareable ones.
-- **Portrait** — `.about__portrait` is a gradient block with initials; drop in a photo.
+- **Brand mark** — `.about__portrait` is a gradient block carrying the AQM mark.
 
 ## Contact form
 
 There is no backend. On submit the form validates, then composes a `mailto:` to
-`aloymagtoto@gmail.com` with the fields filled in. To send server-side instead, point the form
+`aloy@digitalaqm.com` with the fields filled in. To send server-side instead, point the form
 at a service (Formspree, Basin, a serverless function) and replace the `mailto:` branch in
 `main.js`.
 
