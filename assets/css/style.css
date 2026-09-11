@@ -715,49 +715,10 @@ a.card:hover .card__go { transform: translateX(4px); }
 .step p { color: var(--ink-2); font-size: .97rem; }
 
 /* ── about ───────────────────────────────────────────────── */
-.section--about { background: var(--bg-2); }
-.about {
-  display: grid; gap: clamp(2.5rem, 6vw, 5rem);
-  grid-template-columns: minmax(0, .8fr) minmax(0, 1fr);
-  align-items: center;
-}
-.about__visual { position: relative; }
-.about__portrait {
-  position: relative;
-  aspect-ratio: 4 / 5; border-radius: var(--radius);
-  background:
-    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 55%),
-    linear-gradient(150deg, var(--accent-2), #150c37 70%);
-  display: grid; place-items: center;
-  border: 1px solid var(--line);
-  overflow: hidden;
-}
-/* The photo, when there is one. Needs z-index 1 to cover the initials: that
-   span has mix-blend-mode, which paints it in the same layer as positioned
-   siblings, so DOM order alone would leave it showing through the photo.
-   The name chip sits at z-index 2 and stays on top of both. */
-.about__portrait img {
-  position: absolute; inset: 0; z-index: 1;
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center 20%;   /* bias toward the face */
-}
-.about__portrait span {
-  font-family: var(--font-display); font-weight: 700;
-  font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: -.06em;
-  color: rgba(255,255,255,.9);
-  mix-blend-mode: overlay;
-}
-.about__chip {
-  position: absolute; z-index: 2;   /* stays above the portrait photo */
-  left: clamp(.75rem, 3vw, 1.6rem); bottom: clamp(-1.2rem, -2vw, -1rem);
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--line-strong); border-radius: 14px;
-  padding: .85rem 1.15rem;
-}
-.about__chip b { display: block; font-family: var(--font-display); letter-spacing: -.02em; }
-.about__chip span { font-size: .8rem; color: var(--ink-3); }
-
+/* One column: the section is the practice's copy, with no facing visual.
+   The wrap keeps its own width so the copy starts on the page's left edge
+   like every other section; only the measure is constrained. */
+.about__body { max-width: 68ch; }
 .chips { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 2rem; }
 .chips li {
   font-size: .82rem; padding: .45rem .9rem; border-radius: 999px;
@@ -970,9 +931,8 @@ a.card:hover .card__go { transform: translateX(4px); }
 
 /* ── responsive ──────────────────────────────────────────── */
 @media (max-width: 980px) {
-  .process, .about, .cta { grid-template-columns: 1fr; }
+  .process, .cta { grid-template-columns: 1fr; }
   .process__sticky { position: static; }
-  .about__visual { max-width: 420px; }
 }
 
 @media (max-width: 900px) {

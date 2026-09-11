@@ -238,7 +238,7 @@
   const FORM_ENDPOINT = '';
 
   // Change these in one place and the whole form picks them up.
-  const CONTACT_EMAIL   = 'aloymagtoto@gmail.com';
+  const CONTACT_EMAIL   = 'aloy@digitalaqm.com';
   const WHATSAPP_NUMBER = '639171737602';   // international format, no + or spaces
 
   const form = $('#contactForm');

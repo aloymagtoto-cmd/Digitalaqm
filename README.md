@@ -1,6 +1,6 @@
-# Aloysius Magtoto — portfolio site
+# AQM Digital Marketing — site
 
-A single-page portfolio for a Registered Marketing Professional: full-funnel media buying,
+A single-page site for an independent paid-media practice: full-funnel media buying,
 measurement, and conversion work. Dark by default, light theme included, no build step, no
 dependencies.
 
@@ -28,10 +28,9 @@ python3 -m http.server 8000   # → http://localhost:8000
 | How I work | Four-step loop: audit measurement → find the break → buy against real signal → hold efficiency while scaling |
 | Experience | Six roles — California Recovery Center, Executive Optical, Ubertech, NXT Gen Garage, Chapter One, MerQado PH |
 | Stack | Six tool groups, from ad platforms to commerce and creative |
-| About | Positioning and skill chips |
-| Contact | Email, phone/WhatsApp/Viber, LinkedIn, plus a form |
+| Contact | Email, phone/WhatsApp/Viber, plus a form |
 
-All copy and every metric come from the source portfolio deck. The two headline case studies
+All copy and every metric come from the source deck. The two headline case studies
 (California Recovery Center, NXT Gen Garage) span the full grid width; the rest sit in a
 two-column layout that collapses to one under 900px.
 
@@ -55,12 +54,11 @@ layout holds down to 390px.
   (six metrics) and a `.work__notes` list. Add `work__item--wide` to make one span both columns.
 - **Thumbnails** — currently CSS gradients (`.work__thumb--1` … `--7`). Swap in real campaign
   screenshots or dashboard captures when you have shareable ones.
-- **Portrait** — `.about__portrait` is a gradient block with initials; drop in a photo.
 
 ## Contact form
 
 There is no backend. On submit the form validates, then composes a `mailto:` to
-`aloymagtoto@gmail.com` with the fields filled in. To send server-side instead, point the form
+`aloy@digitalaqm.com` with the fields filled in. To send server-side instead, point the form
 at a service (Formspree, Basin, a serverless function) and replace the `mailto:` branch in
 `main.js`.
 

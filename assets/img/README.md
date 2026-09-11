@@ -1,16 +1,20 @@
 # Images
 
-## portrait.jpg
+## og-cover.jpg
 
-Your headshot for the About section. Upload a file to this folder named exactly
-**`portrait.jpg`** and it appears automatically — no code changes needed.
+The share card — what LinkedIn, WhatsApp, Messenger, Slack and iMessage show
+when a page of the site is linked. Every page points `og:image` and
+`twitter:image` at it.
 
-- **Shape:** portrait, roughly 4:5. Square or landscape works too; it gets cropped
-  to fill, centred slightly above the middle so faces don't get cut off.
-- **Size:** around 800 × 1000 px is plenty. Bigger just makes the page slower.
-- **File size:** keep it under ~400 KB. Squash it at squoosh.app if it's heavier.
-- **Format:** JPEG. If yours is a PNG, either convert it or change the `src` in
-  `index.html` from `portrait.jpg` to `portrait.png`.
+- **Size:** exactly 1200 × 630 px.
+- **File size:** keep it under ~300 KB or WhatsApp skips the thumbnail.
+- **Format:** JPEG, quality ~85.
 
-If no file is here, the site falls back to the gradient block with "AM" — so a
-missing or misnamed image never leaves a broken image icon on the page.
+To regenerate it, open `tools/og-card.html`, edit the copy or stats there, and
+screenshot the `.card` element at 1200 × 630. The card is brand-only by design:
+the AQM mark, the headline, the numbers, the domain — no photo.
+
+## Other images
+
+None. Every other visual on the site is CSS — gradients, type, and the
+ambient orbs.
