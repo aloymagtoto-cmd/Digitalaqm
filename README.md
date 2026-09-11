@@ -28,7 +28,6 @@ python3 -m http.server 8000   # → http://localhost:8000
 | How I work | Four-step loop: audit measurement → find the break → buy against real signal → hold efficiency while scaling |
 | Experience | Six roles — California Recovery Center, Executive Optical, Ubertech, NXT Gen Garage, Chapter One, MerQado PH |
 | Stack | Six tool groups, from ad platforms to commerce and creative |
-| About | Positioning and skill chips |
 | Contact | Email, phone/WhatsApp/Viber, plus a form |
 
 All copy and every metric come from the source deck. The two headline case studies
@@ -55,7 +54,6 @@ layout holds down to 390px.
   (six metrics) and a `.work__notes` list. Add `work__item--wide` to make one span both columns.
 - **Thumbnails** — currently CSS gradients (`.work__thumb--1` … `--7`). Swap in real campaign
   screenshots or dashboard captures when you have shareable ones.
-- **Brand mark** — `.about__portrait` is a gradient block carrying the AQM mark.
 
 ## Contact form
 

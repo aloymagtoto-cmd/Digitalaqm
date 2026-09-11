@@ -179,6 +179,5 @@ That's a real chunk of work, and honestly if WordPress isn't doing anything else
   block with a `fetch()` to your Formspree endpoint. Rebuild with `build-standalone.py`.
 - **Real screenshots** — the case study thumbnails are gradients. Ads dashboards or campaign
   creative would carry a lot more weight.
-- **Brand mark** — the About block is a gradient block carrying the AQM mark.
 - **Analytics** — paste your GA4 snippet just before `</head>`. You of all people will want it.
 - **Check it on your phone** before you share the link anywhere.

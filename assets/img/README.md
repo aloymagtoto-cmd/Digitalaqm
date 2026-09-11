@@ -14,7 +14,7 @@ To regenerate it, open `tools/og-card.html`, edit the copy or stats there, and
 screenshot the `.card` element at 1200 × 630. The card is brand-only by design:
 the AQM mark, the headline, the numbers, the domain — no photo.
 
-## About block
+## Other images
 
-`.about__portrait` on the homepage and the About page is a CSS gradient block
-carrying the AQM mark. It needs no image file.
+None. Every other visual on the site is CSS — gradients, type, and the
+ambient orbs.
